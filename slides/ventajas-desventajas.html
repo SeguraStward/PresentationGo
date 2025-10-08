@@ -1,0 +1,300 @@
+<!-- VENTAJAS Y DESVENTAJAS - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Ventajas y Desventajas</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Análisis Comparativo del Lenguaje</p>
+</section>
+
+<!-- VENTAJAS - Slide Única con Modales -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Ventajas de Go</h2>
+    <div class="two-column-grid">
+        <div class="interactive-card-formal" onclick="openModal('modal-simplicidad')">
+            <h3>Simplicidad y Productividad</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-concurrencia')">
+            <h3>Concurrencia Nativa</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-rendimiento')">
+            <h3>Rendimiento y Eficiencia</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-herramientas')">
+            <h3>Herramientas Integradas</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-portabilidad')">
+            <h3>Portabilidad</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-memoria')">
+            <h3>Gestión de Memoria</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-comunidad')">
+            <h3>Comunidad y Ecosistema</h3>
+            <p>Click para ver detalles</p>
+        </div>
+    </div>
+    
+    <!-- Modales de Ventajas -->
+    <div id="modal-simplicidad" class="modal-overlay" onclick="closeModal('modal-simplicidad')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-simplicidad')">&times;</span>
+            <h3>Simplicidad y Productividad</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Solo 25 palabras reservadas:</strong> Sintaxis simple y fácil de aprender</li>
+                    <li><strong>Filosofía "menos es más":</strong> Productividad en cortos períodos</li>
+                    <li><strong>Curva de aprendizaje reducida:</strong> Dominio en 1-2 semanas</li>
+                    <li><strong>Código mantenible:</strong> Legibilidad y consistencia garantizadas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-concurrencia" class="modal-overlay" onclick="closeModal('modal-concurrencia')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-concurrencia')">&times;</span>
+            <h3>Concurrencia Nativa</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Goroutines:</strong> Hilos ligeros con overhead mínimo (~2KB)</li>
+                    <li><strong>Channels:</strong> Comunicación segura entre goroutines</li>
+                    <li><strong>Modelo G-M-P:</strong> Maneja miles de goroutines simultáneas</li>
+                    <li><strong>Sin race conditions:</strong> Patrón "share by communicating"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-rendimiento" class="modal-overlay" onclick="closeModal('modal-rendimiento')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-rendimiento')">&times;</span>
+            <h3>Rendimiento y Eficiencia</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Compilación nativa:</strong> Binarios mucho más veloces que lenguajes interpretados</li>
+                    <li><strong>Compilación rápida:</strong> Ciclos de desarrollo ágiles</li>
+                    <li><strong>Ejecución eficiente:</strong> Sin penalización en rendimiento</li>
+                    <li><strong>Optimizaciones automáticas:</strong> Compilador inteligente</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-herramientas" class="modal-overlay" onclick="closeModal('modal-herramientas')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-herramientas')">&times;</span>
+            <h3>Herramientas Integradas</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>go fmt:</strong> Formateo automático de código</li>
+                    <li><strong>go test:</strong> Framework de testing integrado</li>
+                    <li><strong>go mod:</strong> Gestión moderna de dependencias</li>
+                    <li><strong>go doc:</strong> Documentación automática</li>
+                    <li><strong>Binarios autocontenidos:</strong> Sin dependency hell</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-portabilidad" class="modal-overlay" onclick="closeModal('modal-portabilidad')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-portabilidad')">&times;</span>
+            <h3>Portabilidad Absoluta</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Cross-compilation:</strong> GOOS y GOARCH para cualquier plataforma</li>
+                    <li><strong>Mismo código, múltiples OS:</strong> Linux, Windows, macOS, etc.</li>
+                    <li><strong>Escalabilidad ilimitada:</strong> Desde microservicios hasta sistemas distribuidos</li>
+                    <li><strong>Despliegue simple:</strong> Un solo binario ejecutable</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-memoria" class="modal-overlay" onclick="closeModal('modal-memoria')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-memoria')">&times;</span>
+            <h3>Gestión de Memoria Automática</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Garbage Collector concurrente:</strong> Optimizado y eficiente</li>
+                    <li><strong>Sin gestión manual:</strong> Previene memory leaks</li>
+                    <li><strong>Pausas sub-milisegundo:</strong> Impacto mínimo en rendimiento</li>
+                    <li><strong>Mejora continua:</strong> Optimizaciones en cada versión</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-comunidad" class="modal-overlay" onclick="closeModal('modal-comunidad')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-comunidad')">&times;</span>
+            <h3>Comunidad y Ecosistema</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Respaldo de Google:</strong> Desarrollo continuo garantizado</li>
+                    <li><strong>Adopción empresarial:</strong> Netflix, Uber, Docker, Kubernetes</li>
+                    <li><strong>Comunidad activa:</strong> Recursos, librerías y soporte</li>
+                    <li><strong>Evolución constante:</strong> Nuevas características y mejoras</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DESVENTAJAS - Slide Única con Modales -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Desventajas y Limitaciones</h2>
+    <div class="two-column-grid">
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-simplicidad-limit')">
+            <h3>Simplicidad Limitante</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-errores')">
+            <h3>Manejo de Errores</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-ecosistema')">
+            <h3>Ecosistema en Maduración</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-generics')">
+            <h3>Generics Recientes</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-gc')">
+            <h3>GC Impredecible</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-binarios')">
+            <h3>Binarios Grandes</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-caracteristicas')">
+            <h3>Características Ausentes</h3>
+            <p>Click para ver detalles</p>
+        </div>
+    </div>
+    
+    <!-- Modales de Desventajas -->
+    <div id="modal-simplicidad-limit" class="modal-overlay" onclick="closeModal('modal-simplicidad-limit')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-simplicidad-limit')">&times;</span>
+            <h3>Simplicidad como Limitación</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Falta de características avanzadas:</strong> Sin sobrecarga de operadores</li>
+                    <li><strong>Sin herencia tradicional:</strong> Solo composición</li>
+                    <li><strong>Código verboso:</strong> Algunas tareas requieren más líneas</li>
+                    <li><strong>Expresividad limitada:</strong> Frustración para desarrolladores experimentados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-errores" class="modal-overlay" onclick="closeModal('modal-errores')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-errores')">&times;</span>
+            <h3>Manejo de Errores Explícito</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Patrón repetitivo:</strong> if err != nil en todas partes</li>
+                    <li><strong>Sin excepciones:</strong> Verificación manual constante</li>
+                    <li><strong>Código verboso:</strong> Más líneas para manejo de errores</li>
+                    <li><strong>Beneficio oculto:</strong> Mayor robustez y control explícito</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-ecosistema" class="modal-overlay" onclick="closeModal('modal-ecosistema')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-ecosistema')">&times;</span>
+            <h3>Madurez del Ecosistema</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Menos maduro que Java/Python/JS:</strong> Décadas de diferencia</li>
+                    <li><strong>Librerías especializadas limitadas:</strong> Algunas áreas en desarrollo</li>
+                    <li><strong>Menos opciones disponibles:</strong> Para casos de uso específicos</li>
+                    <li><strong>Crecimiento acelerado:</strong> Mejora constante del ecosistema</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-generics" class="modal-overlay" onclick="closeModal('modal-generics')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-generics')">&times;</span>
+            <h3>Generics Recientes</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Añadidos en Go 1.18 (2022):</strong> Adopción tardía</li>
+                    <li><strong>Código legacy sin generics:</strong> Workarounds antiguos prevalecen</li>
+                    <li><strong>Patrones en evolución:</strong> Comunidad aprendiendo uso óptimo</li>
+                    <li><strong>Mejora gradual:</strong> Ecosistema adaptándose lentamente</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-gc" class="modal-overlay" onclick="closeModal('modal-gc')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-gc')">&times;</span>
+            <h3>Garbage Collector Impredecible</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Pausas impredecibles:</strong> Aunque típicamente sub-milisegundo</li>
+                    <li><strong>Problemático para tiempo real:</strong> Latencia ultra-baja comprometida</li>
+                    <li><strong>No determinístico:</strong> Momentos de pausa no controlables</li>
+                    <li><strong>Para mayoría es suficiente:</strong> Optimizado para casos generales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-binarios" class="modal-overlay" onclick="closeModal('modal-binarios')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-binarios')">&times;</span>
+            <h3>Tamaño de Binarios</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Enlazado estático:</strong> Todo incluido en el binario</li>
+                    <li><strong>Hello World ~2MB:</strong> vs ~20KB en C</li>
+                    <li><strong>Apps típicas 10-50MB:</strong> 5-20x más grande que C/Rust</li>
+                    <li><strong>Trade-off positivo:</strong> Despliegue simple sin dependencias</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-caracteristicas" class="modal-overlay" onclick="closeModal('modal-caracteristicas')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-caracteristicas')">&times;</span>
+            <h3>Características Ausentes</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Sin macros:</strong> No metaprogramación en compile-time</li>
+                    <li><strong>Sin programación funcional avanzada:</strong> No pattern matching</li>
+                    <li><strong>Sin inmutabilidad por defecto:</strong> Variables mutables</li>
+                    <li><strong>Filosofía minimalista:</strong> Diseño intencional, no olvido</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación sobre Go - Presentación</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+<!-- INTRODUCCIÓN - Slide 1: Portada -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" 
+         alt="Go Logo" 
+         class="go-logo"
+         style="width: 200px; margin-bottom: 2rem;">
+    <h1 class="welcome-title">Investigación sobre Go</h1>
+    <p class="welcome-subtitle">Un lenguaje moderno para el desarrollo de sistemas a gran escala</p>
+    <p class="click-hint" style="margin-top: 3rem; color: #00ADD8;">Presiona → para comenzar</p>
+</section>
+
+<!-- INTRODUCCIÓN - Slide 2: Visión General -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Introducción a Go: "Menos es Más"</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Let's Go</h3>
+            <ul class="formal-list">
+                <li>Código abierto y moderno, diseñado para <strong>simplicidad y velocidad</strong></li>
+                <li>Ideal para el desarrollo de <strong>sistemas a gran escala</strong></li>
+                <li>Historia y evolución que explican su popularidad actual</li>
+                <li>Balance entre <strong>ventajas significativas</strong> y limitaciones conocidas</li>
+            </ul>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Adopción Empresarial</h3>
+            <div class="company-list">
+                <p class="company-item">Google</p>
+                <p class="company-item">Netflix</p>
+                <p class="company-item">Uber</p>
+                <p class="company-item">SoundCloud</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 1.5rem; text-align: center;">
+        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); font-style: italic;">
+            Esta investigación incluye análisis profundo, ejemplos prácticos y guía de instalación
+        </p>
+    </div>
+</section>
+
+<!-- INTRODUCCIÓN - Slide 3: Objetivos de la Investigación -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Objetivos de la Investigación</h2>
+    <div class="content-grid">
+        <div class="grid-item">
+            <div class="item-number">01</div>
+            <h3>Historia y Evolución</h3>
+            <p>Análisis del desarrollo de Go y su trayectoria en la industria del software.</p>
+        </div>
+        <div class="grid-item">
+            <div class="item-number">02</div>
+            <h3>Ventajas y Limitaciones</h3>
+            <p>Evaluación de las fortalezas del lenguaje y sus áreas de oportunidad.</p>
+        </div>
+        <div class="grid-item">
+            <div class="item-number">03</div>
+            <h3>Proyección Futura</h3>
+            <p>Análisis de la posible trayectoria y evolución del lenguaje.</p>
+        </div>
+        <div class="grid-item">
+            <div class="item-number">04</div>
+            <h3>Prácticas y Ejemplos</h3>
+            <p>Demostración de características mediante casos de uso específicos.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 1: El Problema en Google (2007) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Antecedentes: El Problema (2007)</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Desafíos en Google</h3>
+            <div class="challenge-box">
+                <p class="challenge-item">Proyectos cada vez más complejos</p>
+                <p class="challenge-item">Herramientas inadecuadas para la escala</p>
+                <p class="challenge-item">Tiempos de compilación prolongados</p>
+                <p class="challenge-item">Productividad reducida</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Dilema de Lenguajes</h3>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h4>C++</h4>
+                    <p class="pro-text">Poderoso</p>
+                    <p class="con-text">Compilación lenta</p>
+                    <p class="con-text">Alta complejidad</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Python</h4>
+                    <p class="pro-text">Desarrollo rápido</p>
+                    <p class="con-text">Rendimiento limitado</p>
+                    <p class="con-text">No escalable</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 2: Los Creadores -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Los tres mosqueteros</h2>
+    <div class="creators-grid">
+        <div class="creator-card">
+            <div class="creator-name">Robert Griesemer</div>
+            <div class="creator-work">
+                <p>Motor V8 de JavaScript (Google)</p>
+                <p>HotSpot Java Virtual Machine</p>
+                <p>Compiladores y sistemas de tipos</p>
+            </div>
+        </div>
+        <div class="creator-card">
+            <div class="creator-name">Rob Pike</div>
+            <div class="creator-work">
+                <p>Sistema Operativo Plan 9</p>
+                <p>Co-creador de UTF-8</p>
+                <p>Herramientas UNIX</p>
+            </div>
+        </div>
+        <div class="creator-card">
+            <div class="creator-name">Ken Thompson</div>
+            <div class="creator-work">
+                <p>Lenguaje de Programación B</p>
+                <p>Sistema Operativo UNIX</p>
+                <p>Sistema Operativo Plan 9</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 3: Contexto Tecnológico -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Contexto Tecnológico (2007)</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Estado de la Industria</h3>
+            <ul class="context-list">
+                <li>Software en producción: C++ y Java</li>
+                <li>GitHub no existía</li>
+                <li>Computadoras mayormente monoprocesador</li>
+                <li>Pocas herramientas de alto nivel gratuitas</li>
+            </ul>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Frustración del Desarrollo</h3>
+            <div class="frustration-box">
+                <p>Complejidad excesiva para grandes proyectos</p>
+                <p>Hardware evolucionado, programación estancada</p>
+                <p>Multiprocesadores emergentes</p>
+                <p>Soporte limitado para concurrencia</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 4: Diseño y Visión -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Diseño y Visión del Lenguaje</h2>
+    <div class="vision-container">
+        <div class="vision-column">
+            <h3 class="section-subtitle">Consideraciones Clave</h3>
+            <div class="consideration-item">
+                <div class="consideration-title">CPUs Multinúcleo</div>
+                <p>Manejo eficiente de concurrencia y paralelismo</p>
+            </div>
+            <div class="consideration-item">
+                <div class="consideration-title">Gestión de Memoria</div>
+                <p>Recolector de basura y manejo automático seguro</p>
+            </div>
+            <div class="consideration-item">
+                <div class="consideration-title">Simplicidad</div>
+                <p>Lenguaje minimalista y fácil de aprender</p>
+            </div>
+        </div>
+        <div class="vision-column">
+            <h3 class="section-subtitle">Influencias</h3>
+            <div class="influence-box">
+                <p><span class="influence-lang">C:</span> Sintaxis básica</p>
+                <p><span class="influence-lang">Pascal, Modula, Oberon:</span> Declaraciones y paquetes</p>
+                <p><span class="influence-lang">Newsqueak, Limbo:</span> Concurrencia</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 5: Cronología -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Cronología de Desarrollo</h2>
+    <div class="timeline-horizontal">
+        <div class="timeline-event">
+            <div class="timeline-year">2007</div>
+            <div class="timeline-desc">Inicio del proyecto</div>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-event">
+            <div class="timeline-year">2009</div>
+            <div class="timeline-desc">Anuncio público como código abierto</div>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-event">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-desc">Lanzamiento de Go 1.0</div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 6: Go 1.0 (2012) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go 1.0 (Marzo 2012)</h2>
+    <div class="version-layout">
+        <div class="version-header">
+            <h3>Fundación Estable para el Futuro</h3>
+        </div>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h4 class="section-subtitle">Motivación</h4>
+                <ul class="version-list">
+                    <li>Proveer un lenguaje estable</li>
+                    <li>Compatibilidad a largo plazo</li>
+                    <li>Base confiable para productos</li>
+                    <li>Fundamento para documentación</li>
+                </ul>
+            </div>
+            <div class="column-right">
+                <h4 class="section-subtitle">Enfoque Principal</h4>
+                <ul class="version-list">
+                    <li>Eliminar inconsistencias</li>
+                    <li>Mejorar portabilidad</li>
+                    <li>Estabilizar el lenguaje</li>
+                    <li>Garantizar retrocompatibilidad</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 7: Go 1.5 (2015) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go 1.5 (Agosto 2015)</h2>
+    <div class="version-layout">
+        <div class="version-header">
+            <h3>Grandes Cambios Internos</h3>
+        </div>
+        <div class="content-grid-three">
+            <div class="grid-card">
+                <h4>Reescritura Completa</h4>
+                <p>Compilador y runtime escritos en Go</p>
+                <p>Eliminación de dependencias de C</p>
+                <p>Mayor portabilidad</p>
+            </div>
+            <div class="grid-card">
+                <h4>Recolector de Basura</h4>
+                <p>Totalmente concurrente</p>
+                <p>Reducción de tiempos de pausa</p>
+                <p>Ejecución paralela con goroutines</p>
+            </div>
+            <div class="grid-card">
+                <h4>GOMAXPROCS</h4>
+                <p>Configuración automática</p>
+                <p>Uso de todos los núcleos disponibles</p>
+                <p>Anteriormente limitado a 1</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 8: Go 1.11 (2018) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go 1.11 (Agosto 2018)</h2>
+    <div class="version-layout">
+        <div class="version-header">
+            <h3>Gestión Moderna de Dependencias</h3>
+        </div>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h4 class="section-subtitle">Módulos de Go</h4>
+                <p class="version-description">Sistema de gestión de dependencias versionado y moderno, similar a Maven en Java.</p>
+                <div class="feature-highlight">
+                    <p>Control de versiones preciso</p>
+                    <p>Reproducibilidad de builds</p>
+                    <p>Gestión simplificada</p>
+                </div>
+            </div>
+            <div class="column-right">
+                <h4 class="section-subtitle">Impacto</h4>
+                <div class="impact-box">
+                    <p>Desarrollo de proyectos más estructurado</p>
+                    <p>Mejor colaboración en equipos</p>
+                    <p>Ecosistema más robusto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANTECEDENTES - Slide 9: Go 1.18 (2022) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go 1.18 (Marzo 2022)</h2>
+    <div class="version-layout">
+        <div class="version-header">
+            <h3>La Llegada de los Genéricos</h3>
+        </div>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h4 class="section-subtitle">Filosofía "Menos es Más"</h4>
+                <div class="philosophy-box">
+                    <p>25 palabras reservadas</p>
+                    <p>Diseño minimalista</p>
+                    <p>Implementación cuidadosa</p>
+                    <p>Sin prisa por agregar características</p>
+                </div>
+            </div>
+            <div class="column-right">
+                <h4 class="section-subtitle">Advertencia del Equipo</h4>
+                <div class="warning-box">
+                    <p>Usar con precaución en producción</p>
+                    <p>Posibles cambios futuros necesarios</p>
+                    <p>Excepción a la promesa de compatibilidad</p>
+                    <p>Corrección de errores e inconsistencias</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Análisis del Lenguaje</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Análisis Detallado del Lenguaje</p>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 1: Contexto 2007 y Objetivos -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Contexto Tecnológico 2007: Necesidad de Cambio</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Desafíos Emergentes</h3>
+            <ul class="formal-list">
+                <li>Código externo difícil de controlar</li>
+                <li>Cadenas de dependencias complejas</li>
+                <li>Dominancia de arquitecturas en red</li>
+                <li>Aplicaciones cliente/servidor</li>
+                <li>Clústeres masivos de máquinas</li>
+                <li>Procesadores multinúcleo en auge</li>
+            </ul>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Metas de Go</h3>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <h4>Eficiencia + Facilidad</h4>
+                    <p>Compilado y tipado estático con facilidad de lenguaje dinámico</p>
+                </div>
+                <div class="goal-item">
+                    <h4>Seguridad</h4>
+                    <p>Tipado seguro y memoria segura</p>
+                </div>
+                <div class="goal-item">
+                    <h4>Concurrencia</h4>
+                    <p>Soporte robusto para concurrencia y comunicación</p>
+                </div>
+                <div class="goal-item">
+                    <h4>Compilación rápida</h4>
+                    <p>Para ciclos de desarrollo más productivos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 2: Filosofía y Expresividad -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Expresividad de Go</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Reconocimientos</h3>
+            <div class="award-box">
+                <div class="award-item">
+                    <h4>TIOBE 2009</h4>
+                    <p>Lenguaje del Año, dos meses después de su lanzamiento</p>
+                </div>
+                <div class="award-item">
+                    <h4>INFOWORLD BOSSIE</h4>
+                    <p>Best of Open Source Software Awards</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Principios de Diseño</h3>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h4>Simple</h4>
+                    <p>Conceptos fáciles de entender</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Ortogonal</h4>
+                    <p>Características combinables y predecibles</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Conciso</h4>
+                    <p>Sin redundancia innecesaria</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Seguro</h4>
+                    <p>Errores fáciles de detectar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 3: Compilador - Filosofía -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Compilador de Go</h2>
+    <div class="compiler-layout">
+        <div class="compiler-philosophy">
+            <h3 class="section-subtitle">Herencia de Plan 9</h3>
+            <p class="description-text">Diseñadores Ken Thompson y Rob Pike trabajaron en Plan 9 de Bell Labs, sistema con filosofía minimalista y compiladores conocidos por su velocidad.</p>
+            <div class="philosophy-highlight">
+                <h4>Filosofía: "Compila rápido, enlaza despacio"</h4>
+                <p>No se invierte tiempo optimizando cada detalle durante compilación. Optimizaciones importantes se realizan en enlazado o posteriormente.</p>
+            </div>
+        </div>
+        <div class="compiler-structure">
+            <h3 class="section-subtitle">Estructura del Compilador</h3>
+            <div class="structure-grid">
+                <div class="structure-item">
+                    <h4>Frontend</h4>
+                    <p>Dos primeras fases de compilación</p>
+                </div>
+                <div class="structure-item">
+                    <h4>Middle-end</h4>
+                    <p>Gran parte del trabajo en segunda fase</p>
+                </div>
+                <div class="structure-item">
+                    <h4>Backend</h4>
+                    <p>Dos últimas fases de compilación</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 4: Fases del Compilador -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Fases del Compilador</h2>
+    <div class="phases-container">
+        <div class="phase-card">
+            <div class="phase-number">1</div>
+            <h3>Parsing</h3>
+            <p>Análisis léxico y sintáctico. Creación de árbol de sintaxis por archivo con información de posición.</p>
+        </div>
+        <div class="phase-card">
+            <div class="phase-number">2</div>
+            <h3>Type Checking</h3>
+            <p>Análisis semántico. Asegura corrección, coherencia y seguridad antes de generar código intermedio.</p>
+        </div>
+        <div class="phase-card">
+            <div class="phase-number">3</div>
+            <h3>IR Construction</h3>
+            <p>Construcción de Representación Intermedia. Traducción a definición comprensible por middle-end mediante Unified IR.</p>
+        </div>
+        <div class="phase-card">
+            <div class="phase-number">4</div>
+            <h3>Middle-end</h3>
+            <p>Optimizaciones: análisis de escape, inlining, eliminación de código muerto, devirtualización.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 5: Optimizaciones Middle-end (Parte 1) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Optimizaciones: Análisis de Escape e Inlining</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Análisis de Escape</h3>
+            <p class="opt-description">Determina cuándo asignar variables a stack (pila) o heap (montón).</p>
+            <div class="benefit-box">
+                <h4>Beneficios</h4>
+                <p>Asignación en pila es más eficiente</p>
+                <p>No requiere garbage collector</p>
+                <p>Reduce carga del recolector</p>
+            </div>
+            <div class="escape-concept">
+                <h4>Variable Escapa al Heap</h4>
+                <p>Cuando se referencia fuera de su ámbito local</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Function Call Inlining</h3>
+            <p class="opt-description">Reemplazo de llamada de función por el cuerpo de esta.</p>
+            <div class="benefit-box">
+                <h4>Resultado</h4>
+                <p>Elimina sobrecarga de llamadas</p>
+                <p>Código más rápido</p>
+                <p>Menor overhead en runtime</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 6: Optimizaciones Middle-end (Parte 2) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Optimizaciones: Dead Code y Devirtualización</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Dead Code Elimination</h3>
+            <p class="opt-description">Eliminación de código que nunca se ejecuta.</p>
+            <div class="benefit-box">
+                <h4>Ventajas</h4>
+                <p>Reduce tamaño del programa</p>
+                <p>Disminuye complejidad</p>
+                <p>Mejora rendimiento</p>
+            </div>
+            <div class="note-box">
+                <p>Pasada a nivel local en funciones</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Devirtualización</h3>
+            <p class="opt-description">Transformación de llamadas de interfaz (despacho dinámico) a llamadas directas (despacho estático).</p>
+            <div class="devirt-process">
+                <div class="process-step">
+                    <h4>Análisis</h4>
+                    <p>Determina tipos concretos usados con interfaz</p>
+                </div>
+                <div class="process-step">
+                    <h4>Transformación</h4>
+                    <p>Convierte a llamada directa al struct</p>
+                </div>
+                <div class="process-step">
+                    <h4>Resultado</h4>
+                    <p>Elimina sobrecarga de despacho dinámico</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 7: Walk y SSA -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Walk y Generación SSA</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Walk: Última Pasada IR</h3>
+            <div class="walk-purposes">
+                <div class="purpose-item">
+                    <div class="purpose-number">1</div>
+                    <h4>Simplificación</h4>
+                    <p>Descompone sentencias complejas en individuales. Introduce variables temporales respetando orden de evaluación.</p>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-number">2</div>
+                    <h4>Desazucarado</h4>
+                    <p>Convierte construcciones de alto nivel en operaciones primitivas. Switch → tablas de búsqueda, maps/canales → llamadas runtime.</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Generación SSA</h3>
+            <div class="ssa-info">
+                <h4>Static Single Assignment</h4>
+                <p>Representación intermedia de bajo nivel con propiedades específicas.</p>
+            </div>
+            <div class="ssa-benefits">
+                <h4>Facilita</h4>
+                <ul class="benefit-list">
+                    <li>Optimizaciones adicionales</li>
+                    <li>Generación de código máquina</li>
+                    <li>Análisis de flujo de datos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 8: Generación de Código Máquina -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Generación de Código Máquina</h2>
+    <div class="codegen-flow">
+        <div class="flow-step">
+            <div class="step-icon">1</div>
+            <h3>Lower Pass</h3>
+            <p>Reescritura de representación genérica a variantes específicas de la arquitectura destino</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+            <div class="step-icon">2</div>
+            <h3>Optimizaciones Finales</h3>
+            <p>Eliminación de código muerto, asignación en registros, optimizaciones específicas de arquitectura</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+            <div class="step-icon">3</div>
+            <h3>Ensamblador</h3>
+            <p>Conversión de instrucciones específicas a código máquina ejecutable</p>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 9: Enlazador -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Enlazador Estático</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Función del Enlazador</h3>
+            <div class="linker-info">
+                <p>Combina archivos de compilación intermedios en un único ejecutable.</p>
+                <p>Copia todas las rutinas de bibliotecas utilizadas, incluyendo runtime de Go.</p>
+            </div>
+            <div class="optimization-highlight">
+                <h4>Optimización Clave</h4>
+                <p>Análisis de alcanzabilidad a nivel de símbolo</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Ventajas vs Desventajas</h3>
+            <div class="pros-cons">
+                <div class="pros-section">
+                    <h4>Ventajas</h4>
+                    <ul class="pro-list">
+                        <li>Portabilidad entre máquinas</li>
+                        <li>Despliegue simple (un archivo)</li>
+                        <li>Sin dependencias externas</li>
+                        <li>Tiempo de inicio rápido</li>
+                    </ul>
+                </div>
+                <div class="cons-section">
+                    <h4>Desventajas</h4>
+                    <ul class="con-list">
+                        <li>Binarios de mayor tamaño</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 10: Runtime - Modelo G-M-P -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Runtime: Modelo G-M-P</h2>
+    <div class="gmp-container">
+        <div class="gmp-intro">
+            <p>Runtime escrito en Go y ensamblador. Implementa scheduler de concurrencia propio.</p>
+        </div>
+        
+        <div class="gmp-row-full">
+            <h3 class="gmp-section-title">Componentes del Modelo</h3>
+            <div class="gmp-components-row">
+                <div class="component-card-compact">
+                    <h4>G (Goroutine)</h4>
+                    <p>Unidad de concurrencia ligera</p>
+                </div>
+                <div class="component-card-compact">
+                    <h4>M (Machine)</h4>
+                    <p>Hilo del sistema operativo</p>
+                </div>
+                <div class="component-card-compact">
+                    <h4>P (Processor)</h4>
+                    <p>Intermediario entre G y M</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gmp-row-full">
+            <h3 class="gmp-section-title">Técnicas de Optimización</h3>
+            <div class="gmp-techniques-row">
+                <div class="technique-card-compact">
+                    <h4>Work-stealing</h4>
+                    <p>P sin goroutines roba de la cola de otro P</p>
+                </div>
+                <div class="technique-card-compact">
+                    <h4>Preemption</h4>
+                    <p>Goroutines de larga ejecución no bloquean hilos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 11: Garbage Collector -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Garbage Collector</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Características</h3>
+            <div class="gc-features">
+                <div class="feature-gc">
+                    <h4>Concurrente</h4>
+                    <p>Trabajo en paralelo con aplicación</p>
+                    <p class="metric">Pausas &lt; 1 milisegundo</p>
+                </div>
+                <div class="feature-gc">
+                    <h4>No Generacional</h4>
+                    <p>Todos los objetos tratados igual</p>
+                    <p class="metric">Heap unificado</p>
+                </div>
+                <div class="feature-gc">
+                    <h4>No Compactante</h4>
+                    <p>No reubica objetos en memoria</p>
+                    <p class="metric">Evita sobrecarga de movimiento</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Algoritmo: Mark-and-Sweep</h3>
+            <div class="tricolor-algo">
+                <h4>Tres Colores</h4>
+                <div class="color-scheme">
+                    <div class="color-item white">
+                        <h5>Blanco</h5>
+                        <p>Objetos que podrían ser recolectados</p>
+                    </div>
+                    <div class="color-item gray">
+                        <h5>Gris</h5>
+                        <p>Alcanzables pero no escaneados</p>
+                    </div>
+                    <div class="color-item black">
+                        <h5>Negro</h5>
+                        <p>Escaneados completamente</p>
+                    </div>
+                </div>
+                <div class="gc-result">
+                    <p>Ciclo termina cuando no quedan objetos grises. Objetos blancos restantes son recolectados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 12: Go Toolchain - Compilación -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go Toolchain: Compilación y Dependencias</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Comandos de Compilación</h3>
+            <div class="toolchain-commands">
+                <div class="command-box">
+                    <code>go run main.go</code>
+                    <p>Compila y ejecuta directamente</p>
+                </div>
+                <div class="command-box">
+                    <code>go build</code>
+                    <p>Genera binario optimizado</p>
+                </div>
+                <div class="command-box">
+                    <code>go install</code>
+                    <p>Compila e instala en $GOBIN</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Gestión de Dependencias</h3>
+            <div class="toolchain-commands">
+                <div class="command-box">
+                    <code>go mod init</code>
+                    <p>Inicializa módulo Go</p>
+                </div>
+                <div class="command-box">
+                    <code>go mod tidy</code>
+                    <p>Limpia dependencias no usadas</p>
+                </div>
+                <div class="command-box">
+                    <code>go get</code>
+                    <p>Descarga dependencias</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 13: Go Toolchain - Caching -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go Toolchain: Sistema de Caché</h2>
+    <div class="cache-system-layout">
+        <div class="cache-intro">
+            <p>Go utiliza un sistema de caché sofisticado para acelerar las compilaciones y gestionar dependencias de manera eficiente.</p>
+        </div>
+        
+        <div class="cache-types">
+            <div class="cache-type-card">
+                <h3>Caché de Construcción</h3>
+                <div class="cache-content">
+                    <p class="cache-description">Almacena compilaciones intermedias de paquetes.</p>
+                    <ul class="cache-features">
+                        <li>Si un paquete no ha cambiado, reutiliza la versión compilada en caché</li>
+                        <li>Reduce drásticamente los tiempos de compilación incremental</li>
+                        <li>Se gestiona automáticamente por el compilador</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cache-type-card">
+                <h3>Caché de Módulos</h3>
+                <div class="cache-content">
+                    <p class="cache-description">Ubicación: <code>$GOPATH/pkg/mod</code></p>
+                    <ul class="cache-features">
+                        <li>Almacena dependencias descargadas localmente</li>
+                        <li>Evita descargas redundantes de red</li>
+                        <li>Compartido entre todos los proyectos Go</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cache-security">
+            <h4>Seguridad y Verificación</h4>
+            <p><strong>go.mod</strong> declara las dependencias y versiones requeridas</p>
+            <p><strong>go.sum</strong> contiene checksums SHA-256 para verificar integridad</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- SINTAXIS - Slide 1: Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Sintaxis de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Simple pero Poderosa</p>
+</section>
+
+<!-- SINTAXIS - Slide 2: Variables y Constantes -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Declaración de Variables</h2>
+    <div class="code-example-layout">
+        <pre><code class="language-go">// Declaración completa
+var nombre string = "María"
+
+// Inferencia de tipo
+var edad = 29
+
+// Declaración corta (solo en funciones)
+puntuacion := 95.5
+
+// Múltiples variables
+var x, y, z int = 1, 2, 3
+ciudad, codigo := "Madrid", 28001</code></pre>
+        <div class="syntax-notes">
+            <div class="note-item">
+                <h4>:= Declaración Corta</h4>
+                <p>Reduce verbosidad manteniendo seguridad de tipos</p>
+            </div>
+            <div class="note-item">
+                <h4>Valores por Defecto</h4>
+                <p>int → 0, bool → false, string → ""</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS Y CONCEPTOS - Slide 3: Constantes e iota -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Constantes e iota</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Constantes Tipadas</h3>
+            <pre><code class="language-go" style="padding: 1rem;">const Pi = 3.14159
+const MaxUsers = 100
+
+// Múltiples constantes
+const (
+    StatusOK = 200
+    StatusNotFound = 404
+)</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">iota: Contador Automático</h3>
+            <pre><code class="language-go" style="padding: 1rem;">const (
+    ENERO = iota  // 0
+    FEBRERO       // 1
+    MARZO         // 2
+    ABRIL         // 3
+    MAYO          // 4
+)</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 4: Tipos de Datos -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Tipos de Datos Fundamentales</h2>
+    <div class="types-grid">
+        <div class="type-group">
+            <h3>Booleanos</h3>
+            <code>bool</code>
+        </div>
+        <div class="type-group">
+            <h3>Enteros con Signo</h3>
+            <code>int, int8, int16, int32, int64</code>
+        </div>
+        <div class="type-group">
+            <h3>Enteros sin Signo</h3>
+            <code>uint, uint8, uint16, uint32, uint64</code>
+        </div>
+        <div class="type-group">
+            <h3>Punto Flotante</h3>
+            <code>float32, float64</code>
+        </div>
+        <div class="type-group">
+            <h3>Texto y Bytes</h3>
+            <code>string, byte, rune</code>
+        </div>
+    </div>
+    <div class="rune-example">
+        <h4>rune: Unicode Internacional</h4>
+        <pre><code class="language-go">texto := "Hola, 你好, こんにちは"
+for _, r := range texto {
+    fmt.Printf("%c ", r)
+}</code></pre>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 5: Control de Flujo: if/switch -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Control de Flujo: if y switch</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">if (sin paréntesis)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">if edad >= 18 {
+    fmt.Println("Adulto")
+}
+
+// if con declaración
+if v := getValor(); v > 10 {
+    fmt.Println(v)
+}</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">switch (sin break)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">switch dia {
+case "lunes":
+    fmt.Println("Inicio")
+case "sábado", "domingo":
+    fmt.Println("Fin de semana")
+default:
+    fmt.Println("Entre semana")
+}</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 6: Bucles for -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Bucles: Solo "for"</h2>
+    <div class="for-variants">
+        <div class="for-example">
+            <h3>Estilo C</h3>
+            <pre><code class="language-go">for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}</code></pre>
+        </div>
+        <div class="for-example">
+            <h3>Estilo While</h3>
+            <pre><code class="language-go">contador := 0
+for contador < 5 {
+    fmt.Println(contador)
+    contador++
+}</code></pre>
+        </div>
+        <div class="for-example">
+            <h3>Infinito</h3>
+            <pre><code class="language-go">for {
+    if shouldExit() {
+        break
+    }
+}</code></pre>
+        </div>
+        <div class="for-example">
+            <h3>range</h3>
+            <pre><code class="language-go">nums := []int{1, 2, 3}
+for i, v := range nums {
+    fmt.Printf("%d:%d\n", i, v)
+}</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 7: Arrays y Slices -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Arrays vs Slices</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Arrays (Tamaño Fijo)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">// Tamaño fijo
+var nums [5]int
+
+// Inicialización
+datos := [3]string{"a", "b", "c"}
+
+// Inferencia
+dias := [...]string{
+    "lunes", "martes"
+}</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Slices (Dinámicos)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">// Slice literal
+nums := []int{1, 2, 3, 4}
+
+// Con make
+s := make([]int, 5, 10)
+
+// Append
+nums = append(nums, 5, 6)
+
+// Subslice
+sub := nums[1:3]</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 8: Maps -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Maps (Diccionarios)</h2>
+    <div class="map-layout">
+        <div class="map-syntax">
+            <h3>Sintaxis: map[TipoClave]TipoValor</h3>
+            <pre><code class="language-go">// Creación con valores
+edades := map[string]int{
+    "Ana":    28,
+    "Carlos": 35,
+}
+
+// Con make
+precios := make(map[string]float64)
+
+// Operaciones
+edades["David"] = 31        // Añadir
+edad := edades["Ana"]        // Leer
+delete(edades, "Carlos")     // Eliminar
+
+// Verificar existencia
+if edad, ok := edades["Luis"]; ok {
+    fmt.Println(edad)
+}</code></pre>
+        </div>
+        <div class="map-notes">
+            <div class="map-note-item">
+                <h4>Maps son Referencias</h4>
+                <p>Se pasan por referencia a funciones</p>
+            </div>
+            <div class="map-note-item">
+                <h4>Orden NO Garantizado</h4>
+                <p>Iteración en orden aleatorio</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 9: Structs -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Structs: Composición de Tipos</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Definición y Uso</h3>
+            <pre><code class="language-go">type Persona struct {
+    Nombre   string
+    Apellido string
+    Edad     int
+}
+
+// Creación
+p := Persona{
+    Nombre: "Ana",
+    Apellido: "López",
+    Edad: 30,
+}
+
+// Acceso
+fmt.Println(p.Nombre)</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Embedding (Composición)</h3>
+            <pre><code class="language-go">type Empleado struct {
+    Persona  // Embedding
+    ID       string
+    Salario  float64
+}
+
+e := Empleado{
+    Persona: Persona{
+        Nombre: "Carlos",
+    },
+    ID: "E123",
+}
+
+// Campos promocionados
+fmt.Println(e.Nombre)</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 10: Métodos e Interfaces -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Métodos e Interfaces</h2>
+    <div class="methods-interfaces-layout">
+        <div class="methods-section">
+            <h3>Métodos con Receptores</h3>
+            <pre><code class="language-go">// Receptor de valor
+func (p Persona) NombreCompleto() string {
+    return p.Nombre + " " + p.Apellido
+}
+
+// Receptor de puntero (modifica)
+func (p *Persona) CumplirAnios() {
+    p.Edad++
+}
+
+p := Persona{Nombre: "Ana", Edad: 25}
+p.CumplirAnios()  // Edad ahora es 26</code></pre>
+        </div>
+        <div class="interfaces-section">
+            <h3>Interfaces Implícitas</h3>
+            <pre><code class="language-go">type Saludable interface {
+    Saludar() string
+}
+
+func (p Persona) Saludar() string {
+    return "Hola, " + p.Nombre
+}
+
+// Polimorfismo
+func SaludarA(s Saludable) {
+    fmt.Println(s.Saludar())
+}
+
+SaludarA(p)  // Funciona automáticamente</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 11: Goroutines y Channels -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Concurrencia: Goroutines y Channels</h2>
+    <div class="concurrency-examples">
+        <div class="goroutine-example">
+            <h3>Goroutines: Hilos Ligeros</h3>
+            <pre><code class="language-go">// Lanzar goroutine
+go func() {
+    fmt.Println("Ejecutando concurrentemente")
+}()
+
+// Con WaitGroup
+var wg sync.WaitGroup
+wg.Add(1)
+go func() {
+    defer wg.Done()
+    // hacer trabajo
+}()
+wg.Wait()</code></pre>
+        </div>
+        <div class="channel-example">
+            <h3>Channels: Comunicación Segura</h3>
+            <pre><code class="language-go">// Canal sin buffer
+ch := make(chan int)
+
+go func() {
+    ch <- 42  // Enviar
+}()
+
+valor := <-ch  // Recibir
+
+// Canal con buffer
+buf := make(chan int, 3)
+buf <- 1
+buf <- 2
+buf <- 3</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 12: Manejo de Errores -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Manejo de Errores Explícito</h2>
+    <div class="error-handling-layout">
+        <div class="error-example">
+            <h3>Patrón Estándar</h3>
+            <pre><code class="language-go">func dividir(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("división por cero")
+    }
+    return a / b, nil
+}
+
+// Uso
+resultado, err := dividir(10, 0)
+if err != nil {
+    fmt.Println("Error:", err)
+    return
+}
+fmt.Println(resultado)</code></pre>
+        </div>
+        <div class="error-notes">
+            <div class="error-principle">
+                <h4>No Excepciones</h4>
+                <p>Errores como valores de retorno</p>
+            </div>
+            <div class="error-principle">
+                <h4>Manejo Explícito</h4>
+                <p>Verificación inmediata con if err != nil</p>
+            </div>
+            <div class="error-principle">
+                <h4>Errors Personalizados</h4>
+                <p>Implementa interface error con método Error()</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 13: Biblioteca Estándar y Herramientas -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Ecosistema Completo</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Biblioteca Estándar</h3>
+            <div class="stdlib-packages-compact">
+                <div class="pkg-category">
+                    <h4>Redes y HTTP</h4>
+                    <code>net/http, net</code>
+                </div>
+                <div class="pkg-category">
+                    <h4>I/O</h4>
+                    <code>fmt, io, bufio</code>
+                </div>
+                <div class="pkg-category">
+                    <h4>Serialización</h4>
+                    <code>encoding/json</code>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Herramientas CLI</h3>
+            <div class="tools-list-compact">
+                <div class="tool-item">
+                    <code>go fmt</code>
+                    <span>Formateo</span>
+                </div>
+                <div class="tool-item">
+                    <code>go vet</code>
+                    <span>Análisis estático</span>
+                </div>
+                <div class="tool-item">
+                    <code>go test</code>
+                    <span>Testing</span>
+                </div>
+                <div class="tool-item">
+                    <code>go build</code>
+                    <span>Compilación</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CARACTERÍSTICAS - Slide 1: Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Características de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Análisis Detallado del Lenguaje</p>
+</section>
+
+<!-- CARACTERÍSTICAS - Slide 2: Características Generales -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Características Generales</h2>
+    <div class="general-features-grid">
+        <div class="feature-general-card">
+            <h3>Filosofía de Diseño</h3>
+            <div class="feature-content">
+                <p>Diseñado con principio de <strong>simplicidad y pragmatismo</strong>.</p>
+                <ul class="feature-list">
+                    <li>Prioriza legibilidad del código</li>
+                    <li>Facilidad de mantenimiento</li>
+                    <li>Filosofía: "Menos es más"</li>
+                    <li>Conjunto reducido pero poderoso</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="feature-general-card">
+            <h3>Paradigma de Programación</h3>
+            <div class="feature-content">
+                <p>Principalmente <strong>imperativo</strong> con soporte para concurrencia.</p>
+                <ul class="feature-list">
+                    <li>No orientado a objetos tradicional</li>
+                    <li>Composición de tipos y métodos</li>
+                    <li>Elementos de programación funcional</li>
+                    <li>Flexibilidad pragmática</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="feature-general-card">
+            <h3>Compilación y Ejecución</h3>
+            <div class="feature-content">
+                <p>Lenguaje <strong>compilado</strong> con binarios nativos independientes.</p>
+                <ul class="feature-list">
+                    <li>Sin máquinas virtuales</li>
+                    <li>Sin intérpretes en runtime</li>
+                    <li>Compilador extremadamente rápido</li>
+                    <li>Ciclos de desarrollo ágiles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CARACTERÍSTICAS - Slide 3: Características Específicas -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Características Específicas del Lenguaje</h2>
+    <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); text-align: center; margin-bottom: 1.5rem;">Haz clic en cada característica para ver más detalles</p>
+    <div class="specific-features-grid">
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('tiposModal')">
+            <h3>Sistema de Tipos</h3>
+            <p>Tipado estático pero flexible con inferencia automática</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('memoriaModal')">
+            <h3>Gestión de Memoria</h3>
+            <p>Garbage Collection de baja latencia con control manual</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('concurrenciaModal')">
+            <h3>Concurrencia Nativa</h3>
+            <p>Goroutines y canales como primitivas del lenguaje</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('herramientasModal')">
+            <h3>Toolchain Integrado</h3>
+            <p>Herramientas de formateo, testing y documentación incluidas</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('sintaxisModal')">
+            <h3>Sintaxis Minimalista</h3>
+            <p>25 palabras reservadas, sintaxis limpia inspirada en C</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('rendimientoModal')">
+            <h3>Rendimiento y Deployment</h3>
+            <p>Binarios estáticos optimizados para cloud-native</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('casosUsoModal')">
+            <h3>Casos de Uso</h3>
+            <p>Servicios web, microservicios, herramientas CLI</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('composicionModal')">
+            <h3>Composición sobre Herencia</h3>
+            <p>No hay clases ni herencia tradicional, se usa embedding</p>
+        </div>
+    </div>
+</section>
+
+<!-- Modales para Características Específicas -->
+
+<!-- Modal: Sistema de Tipos -->
+<div id="tiposModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('tiposModal')">&times;</span>
+        <h2>Sistema de Tipos</h2>
+        <div class="type-system-layout">
+            <div class="type-intro">
+                <p class="highlight-text">Sistema de tipos <strong>estático pero flexible</strong></p>
+            </div>
+            
+            <div class="type-categories">
+                <div class="type-category">
+                    <h3>Tipos Básicos</h3>
+                    <div class="type-items">
+                        <span class="type-badge">int</span>
+                        <span class="type-badge">float</span>
+                        <span class="type-badge">string</span>
+                        <span class="type-badge">bool</span>
+                    </div>
+                </div>
+                
+                <div class="type-category">
+                    <h3>Tipos Compuestos</h3>
+                    <div class="type-items">
+                        <span class="type-badge">arrays</span>
+                        <span class="type-badge">slices</span>
+                        <span class="type-badge">maps</span>
+                        <span class="type-badge">structs</span>
+                    </div>
+                </div>
+                
+                <div class="type-category">
+                    <h3>Tipos Avanzados</h3>
+                    <div class="type-items">
+                        <span class="type-badge">punteros</span>
+                        <span class="type-badge">interfaces</span>
+                        <span class="type-badge">canales</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interface-highlight">
+                <h4>Interfaces Implícitas</h4>
+                <p>Las interfaces se implementan implícitamente, facilitando polimorfismo sin jerarquías complejas</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Gestión de Memoria -->
+<div id="memoriaModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('memoriaModal')">&times;</span>
+        <h2>Gestión de Memoria</h2>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h3 class="section-subtitle subtitle-compact">Garbage Collector Eficiente</h3>
+                <div class="gc-benefits-box">
+                    <h4>Gestión Automática</h4>
+                    <p>Maneja automáticamente asignación y liberación de memoria</p>
+                </div>
+                
+                <div class="problems-solved">
+                    <h4>Problemas Eliminados</h4>
+                    <ul class="solved-list">
+                        <li>Memory leaks</li>
+                        <li>Dangling pointers</li>
+                        <li>Doble liberación</li>
+                        <li>Fragmentación manual</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="column-right">
+                <h3 class="section-subtitle subtitle-compact">Control de Rendimiento</h3>
+                <div class="performance-control">
+                    <div class="control-item">
+                        <h4>Punteros Disponibles</h4>
+                        <p>Mantiene control de rendimiento cuando es necesario</p>
+                    </div>
+                    
+                    <div class="control-item">
+                        <h4>Balance Perfecto</h4>
+                        <p>Seguridad automática + control manual cuando se necesita</p>
+                    </div>
+                    
+                    <div class="control-item">
+                        <h4>Optimización Inteligente</h4>
+                        <p>Análisis de escape determina stack vs heap</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Concurrencia Nativa -->
+<div id="concurrenciaModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('concurrenciaModal')">&times;</span>
+        <h2>Concurrencia Nativa: Característica Distintiva</h2>
+        <div class="concurrency-showcase">
+            <div class="concurrency-hero">
+                <h3>Goroutines</h3>
+                <p class="hero-description">Hilos ligeros gestionados por el runtime</p>
+                <div class="goroutine-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">Miles</div>
+                        <div class="stat-label">de goroutines creables</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Mínimo</div>
+                        <div class="stat-label">overhead</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="channels-section">
+                <h3>Canales (Channels)</h3>
+                <p class="channels-description">Forma segura de comunicación entre goroutines</p>
+                
+                <div class="csp-model">
+                    <h4>Modelo CSP</h4>
+                    <p>Communicating Sequential Processes</p>
+                    <ul class="csp-benefits">
+                        <li>Comunicación segura</li>
+                        <li>Sincronización implícita</li>
+                        <li>Prevención de race conditions</li>
+                        <li>Diseño elegante y simple</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Herramientas Integradas -->
+<div id="herramientasModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('herramientasModal')">&times;</span>
+        <h2>Herramientas Integradas: Ecosistema Completo</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>go fmt</h3>
+                <p>Formateo automático del código</p>
+                <span class="tool-benefit">Estilo consistente</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go test</h3>
+                <p>Framework de pruebas unitarias</p>
+                <span class="tool-benefit">Testing integrado</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go mod</h3>
+                <p>Gestión de dependencias</p>
+                <span class="tool-benefit">Módulos versionados</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go doc</h3>
+                <p>Generación de documentación</p>
+                <span class="tool-benefit">Docs automáticas</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>profiler</h3>
+                <p>Análisis de rendimiento</p>
+                <span class="tool-benefit">Optimización guiada</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go vet</h3>
+                <p>Análisis de código estático</p>
+                <span class="tool-benefit">Detección de errores</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Sintaxis y Características del Lenguaje -->
+<div id="sintaxisModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('sintaxisModal')">&times;</span>
+        <h2>Sintaxis y Características del Lenguaje</h2>
+        <div class="syntax-features-layout">
+            <div class="syntax-inspiration">
+                <h3>Sintaxis Limpia y Minimalista</h3>
+                <p>Inspirada en C, pero simplificada - Solo 25 palabras reservadas</p>
+            </div>
+            
+            <div class="language-features-grid">
+                <div class="lang-feature">
+                    <h4>Structs con Métodos</h4>
+                    <p>No hay clases tradicionales, composición sobre herencia</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Múltiples Retornos</h4>
+                    <p>Funciones pueden devolver múltiples valores</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Defer Statements</h4>
+                    <p>Limpieza automática de recursos</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Type Embedding</h4>
+                    <p>Composición de tipos elegante</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Reflection Funcional</h4>
+                    <p>Limitada pero útil cuando se necesita</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Generics (Go 1.18+)</h4>
+                    <p>Añadidos en versión 1.18</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Errores Explícitos</h4>
+                    <p>No excepciones, manejo explícito de errores</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Interfaces Implícitas</h4>
+                    <p>Duck typing con seguridad estática</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Rendimiento y Deployment -->
+<div id="rendimientoModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('rendimientoModal')">&times;</span>
+        <h2>Rendimiento y Deployment</h2>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h3 class="section-subtitle subtitle-compact">Rendimiento Excelente</h3>
+                <div class="performance-metrics">
+                    <div class="perf-item">
+                        <h4>Binarios Optimizados</h4>
+                        <p>Rendimiento comparable a C++ en muchos casos</p>
+                    </div>
+                    
+                    <div class="perf-item">
+                        <h4>Compilación Nativa</h4>
+                        <p>Sin overhead de VM o interpretación</p>
+                    </div>
+                    
+                    <div class="perf-item">
+                        <h4>Arranque Rápido</h4>
+                        <p>Tiempo de inicio muy rápido</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column-right">
+                <h3 class="section-subtitle">Deployment Simplificado</h3>
+                <div class="deployment-benefits">
+                    <div class="deploy-item">
+                        <h4>Binarios Autocontenidos</h4>
+                        <p>Un solo archivo ejecutable con todas las dependencias</p>
+                    </div>
+                    
+                    <div class="deploy-item">
+                        <h4>Despliegue Sencillo</h4>
+                        <p>Copiar y ejecutar, sin instalaciones complejas</p>
+                    </div>
+                    
+                    <div class="deploy-item">
+                        <h4>Cloud-Native</h4>
+                        <p>Ideal para microservicios y contenedores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Casos de Uso Principales -->
+<div id="casosUsoModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('casosUsoModal')">&times;</span>
+        <h2>Casos de Uso Principales</h2>
+        <div class="use-cases-layout">
+            <div class="use-cases-intro">
+                <p class="intro-highlight">Go se destaca especialmente en:</p>
+            </div>
+            
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <h3>Servicios Web y APIs</h3>
+                    <ul class="use-case-list">
+                        <li>APIs REST</li>
+                        <li>Servidores HTTP</li>
+                        <li>GraphQL</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Microservicios</h3>
+                    <ul class="use-case-list">
+                        <li>Servicios cloud-native</li>
+                        <li>Contenedores</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Herramientas CLI</h3>
+                    <ul class="use-case-list">
+                        <li>Línea de comandos</li>
+                        <li>DevOps tools</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Infraestructura</h3>
+                    <ul class="use-case-list">
+                        <li>Orquestadores</li>
+                        <li>Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="famous-projects">
+                <h3>Proyectos Famosos en Go</h3>
+                <div class="projects-showcase">
+                    <div class="project-badge">Docker</div>
+                    <div class="project-badge">Kubernetes</div>
+                    <div class="project-badge">Terraform</div>
+                    <div class="project-badge">Prometheus</div>
+                    <div class="project-badge">Etcd</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Composición sobre Herencia -->
+<div id="composicionModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('composicionModal')">&times;</span>
+        <h2>Composición sobre Herencia</h2>
+        <div class="composition-layout">
+            <div class="composition-intro">
+                <p class="highlight-text">Go <strong>no tiene clases ni herencia tradicional</strong></p>
+                <p>En su lugar, utiliza <strong>composición</strong> a través de embedding y interfaces</p>
+            </div>
+            
+            <div class="composition-benefits">
+                <h3>Ventajas del Enfoque</h3>
+                <div class="benefit-grid">
+                    <div class="benefit-item">
+                        <h4>Simplicidad</h4>
+                        <p>Sin jerarquías complejas de herencia</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>Flexibilidad</h4>
+                        <p>Composición dinámica de comportamiento</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>Claridad</h4>
+                        <p>Relaciones explícitas entre tipos</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>Mantenibilidad</h4>
+                        <p>Código más fácil de entender y modificar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="embedding-explanation">
+                <h3>Type Embedding</h3>
+                <p>Los structs pueden "embeber" otros tipos, heredando sus métodos automáticamente sin herencia explícita</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- VENTAJAS Y DESVENTAJAS - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Ventajas y Desventajas</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Análisis Comparativo del Lenguaje</p>
+</section>
+
+<!-- VENTAJAS - Slide Única con Modales -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Ventajas de Go</h2>
+    <div class="two-column-grid">
+        <div class="interactive-card-formal" onclick="openModal('modal-simplicidad')">
+            <h3>Simplicidad y Productividad</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-concurrencia')">
+            <h3>Concurrencia Nativa</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-rendimiento')">
+            <h3>Rendimiento y Eficiencia</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-herramientas')">
+            <h3>Herramientas Integradas</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-portabilidad')">
+            <h3>Portabilidad</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-memoria')">
+            <h3>Gestión de Memoria</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal" onclick="openModal('modal-comunidad')">
+            <h3>Comunidad y Ecosistema</h3>
+            <p>Click para ver detalles</p>
+        </div>
+    </div>
+    
+    <!-- Modales de Ventajas -->
+    <div id="modal-simplicidad" class="modal-overlay" onclick="closeModal('modal-simplicidad')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-simplicidad')">&times;</span>
+            <h3>Simplicidad y Productividad</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Solo 25 palabras reservadas:</strong> Sintaxis simple y fácil de aprender</li>
+                    <li><strong>Filosofía "menos es más":</strong> Productividad en cortos períodos</li>
+                    <li><strong>Curva de aprendizaje reducida:</strong> Dominio en 1-2 semanas</li>
+                    <li><strong>Código mantenible:</strong> Legibilidad y consistencia garantizadas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-concurrencia" class="modal-overlay" onclick="closeModal('modal-concurrencia')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-concurrencia')">&times;</span>
+            <h3>Concurrencia Nativa</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Goroutines:</strong> Hilos ligeros con overhead mínimo (~2KB)</li>
+                    <li><strong>Channels:</strong> Comunicación segura entre goroutines</li>
+                    <li><strong>Modelo G-M-P:</strong> Maneja miles de goroutines simultáneas</li>
+                    <li><strong>Sin race conditions:</strong> Patrón "share by communicating"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-rendimiento" class="modal-overlay" onclick="closeModal('modal-rendimiento')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-rendimiento')">&times;</span>
+            <h3>Rendimiento y Eficiencia</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Compilación nativa:</strong> Binarios mucho más veloces que lenguajes interpretados</li>
+                    <li><strong>Compilación rápida:</strong> Ciclos de desarrollo ágiles</li>
+                    <li><strong>Ejecución eficiente:</strong> Sin penalización en rendimiento</li>
+                    <li><strong>Optimizaciones automáticas:</strong> Compilador inteligente</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-herramientas" class="modal-overlay" onclick="closeModal('modal-herramientas')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-herramientas')">&times;</span>
+            <h3>Herramientas Integradas</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>go fmt:</strong> Formateo automático de código</li>
+                    <li><strong>go test:</strong> Framework de testing integrado</li>
+                    <li><strong>go mod:</strong> Gestión moderna de dependencias</li>
+                    <li><strong>go doc:</strong> Documentación automática</li>
+                    <li><strong>Binarios autocontenidos:</strong> Sin dependency hell</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-portabilidad" class="modal-overlay" onclick="closeModal('modal-portabilidad')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-portabilidad')">&times;</span>
+            <h3>Portabilidad Absoluta</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Cross-compilation:</strong> GOOS y GOARCH para cualquier plataforma</li>
+                    <li><strong>Mismo código, múltiples OS:</strong> Linux, Windows, macOS, etc.</li>
+                    <li><strong>Escalabilidad ilimitada:</strong> Desde microservicios hasta sistemas distribuidos</li>
+                    <li><strong>Despliegue simple:</strong> Un solo binario ejecutable</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-memoria" class="modal-overlay" onclick="closeModal('modal-memoria')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-memoria')">&times;</span>
+            <h3>Gestión de Memoria Automática</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Garbage Collector concurrente:</strong> Optimizado y eficiente</li>
+                    <li><strong>Sin gestión manual:</strong> Previene memory leaks</li>
+                    <li><strong>Pausas sub-milisegundo:</strong> Impacto mínimo en rendimiento</li>
+                    <li><strong>Mejora continua:</strong> Optimizaciones en cada versión</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-comunidad" class="modal-overlay" onclick="closeModal('modal-comunidad')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-comunidad')">&times;</span>
+            <h3>Comunidad y Ecosistema</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Respaldo de Google:</strong> Desarrollo continuo garantizado</li>
+                    <li><strong>Adopción empresarial:</strong> Netflix, Uber, Docker, Kubernetes</li>
+                    <li><strong>Comunidad activa:</strong> Recursos, librerías y soporte</li>
+                    <li><strong>Evolución constante:</strong> Nuevas características y mejoras</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DESVENTAJAS - Slide Única con Modales -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Desventajas y Limitaciones</h2>
+    <div class="two-column-grid">
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-simplicidad-limit')">
+            <h3>Simplicidad Limitante</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-errores')">
+            <h3>Manejo de Errores</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-ecosistema')">
+            <h3>Ecosistema en Maduración</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-generics')">
+            <h3>Generics Recientes</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-gc')">
+            <h3>GC Impredecible</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-binarios')">
+            <h3>Binarios Grandes</h3>
+            <p>Click para ver detalles</p>
+        </div>
+        
+        <div class="interactive-card-formal disadvantage" onclick="openModal('modal-caracteristicas')">
+            <h3>Características Ausentes</h3>
+            <p>Click para ver detalles</p>
+        </div>
+    </div>
+    
+    <!-- Modales de Desventajas -->
+    <div id="modal-simplicidad-limit" class="modal-overlay" onclick="closeModal('modal-simplicidad-limit')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-simplicidad-limit')">&times;</span>
+            <h3>Simplicidad como Limitación</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Falta de características avanzadas:</strong> Sin sobrecarga de operadores</li>
+                    <li><strong>Sin herencia tradicional:</strong> Solo composición</li>
+                    <li><strong>Código verboso:</strong> Algunas tareas requieren más líneas</li>
+                    <li><strong>Expresividad limitada:</strong> Frustración para desarrolladores experimentados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-errores" class="modal-overlay" onclick="closeModal('modal-errores')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-errores')">&times;</span>
+            <h3>Manejo de Errores Explícito</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Patrón repetitivo:</strong> if err != nil en todas partes</li>
+                    <li><strong>Sin excepciones:</strong> Verificación manual constante</li>
+                    <li><strong>Código verboso:</strong> Más líneas para manejo de errores</li>
+                    <li><strong>Beneficio oculto:</strong> Mayor robustez y control explícito</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-ecosistema" class="modal-overlay" onclick="closeModal('modal-ecosistema')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-ecosistema')">&times;</span>
+            <h3>Madurez del Ecosistema</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Menos maduro que Java/Python/JS:</strong> Décadas de diferencia</li>
+                    <li><strong>Librerías especializadas limitadas:</strong> Algunas áreas en desarrollo</li>
+                    <li><strong>Menos opciones disponibles:</strong> Para casos de uso específicos</li>
+                    <li><strong>Crecimiento acelerado:</strong> Mejora constante del ecosistema</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-generics" class="modal-overlay" onclick="closeModal('modal-generics')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-generics')">&times;</span>
+            <h3>Generics Recientes</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Añadidos en Go 1.18 (2022):</strong> Adopción tardía</li>
+                    <li><strong>Código legacy sin generics:</strong> Workarounds antiguos prevalecen</li>
+                    <li><strong>Patrones en evolución:</strong> Comunidad aprendiendo uso óptimo</li>
+                    <li><strong>Mejora gradual:</strong> Ecosistema adaptándose lentamente</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-gc" class="modal-overlay" onclick="closeModal('modal-gc')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-gc')">&times;</span>
+            <h3>Garbage Collector Impredecible</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Pausas impredecibles:</strong> Aunque típicamente sub-milisegundo</li>
+                    <li><strong>Problemático para tiempo real:</strong> Latencia ultra-baja comprometida</li>
+                    <li><strong>No determinístico:</strong> Momentos de pausa no controlables</li>
+                    <li><strong>Para mayoría es suficiente:</strong> Optimizado para casos generales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-binarios" class="modal-overlay" onclick="closeModal('modal-binarios')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-binarios')">&times;</span>
+            <h3>Tamaño de Binarios</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Enlazado estático:</strong> Todo incluido en el binario</li>
+                    <li><strong>Hello World ~2MB:</strong> vs ~20KB en C</li>
+                    <li><strong>Apps típicas 10-50MB:</strong> 5-20x más grande que C/Rust</li>
+                    <li><strong>Trade-off positivo:</strong> Despliegue simple sin dependencias</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-caracteristicas" class="modal-overlay" onclick="closeModal('modal-caracteristicas')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-caracteristicas')">&times;</span>
+            <h3>Características Ausentes</h3>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Sin macros:</strong> No metaprogramación en compile-time</li>
+                    <li><strong>Sin programación funcional avanzada:</strong> No pattern matching</li>
+                    <li><strong>Sin inmutabilidad por defecto:</strong> Variables mutables</li>
+                    <li><strong>Filosofía minimalista:</strong> Diseño intencional, no olvido</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EL FUTURO DE GO - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">El Futuro de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Proyecciones y Tendencias</p>
+</section>
+
+<!-- EL FUTURO DE GO - Slide 1: Crecimiento y Adopción Actual -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go en 2024: Crecimiento Constante</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Estadísticas Clave</h3>
+            <div class="stat-box">
+                <div class="stat-number">5.8M+</div>
+                <p>Desarrolladores en todo el mundo</p>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15 años</div>
+                <p>Desde su creación en 2009</p>
+            </div>
+            <div class="highlight-box">
+                <p><strong>Alta demanda profesional:</strong> Los desarrolladores Go están entre los mejor remunerados del sector tecnológico</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Áreas de Especialización</h3>
+            <div class="specialization-card">
+                <h4>Servicios Web y Empresariales</h4>
+                <ul class="formal-list">
+                    <li>APIs y microservicios</li>
+                    <li>Aplicaciones empresariales</li>
+                    <li>Herramientas de línea de comandos</li>
+                </ul>
+            </div>
+            <div class="specialization-card">
+                <h4>Infraestructura Cloud</h4>
+                <ul class="formal-list">
+                    <li>Gestión de servicios en la nube</li>
+                    <li>Operadores de Kubernetes</li>
+                    <li>Herramientas DevOps</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EL FUTURO DE GO - Slide 2: Adopción Industrial -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Empresas Líderes Usando Go</h2>
+    <div class="industry-grid">
+        <div class="industry-sector">
+            <h3>Tecnología</h3>
+            <div class="company-tags">
+                <span class="company-tag">Google</span>
+                <span class="company-tag">DataDog</span>
+                <span class="company-tag">Kubernetes</span>
+                <span class="company-tag">HashiCorp</span>
+                <span class="company-tag">Dropbox</span>
+            </div>
+        </div>
+        
+        <div class="industry-sector">
+            <h3>Finanzas</h3>
+            <div class="company-tags">
+                <span class="company-tag finance">Monzo</span>
+                <span class="company-tag finance">American Express</span>
+                <span class="company-tag finance">Mercado Libre</span>
+            </div>
+        </div>
+        
+        <div class="industry-sector">
+            <h3>Transporte y Retail</h3>
+            <div class="company-tags">
+                <span class="company-tag transport">Amazon</span>
+                <span class="company-tag transport">Uber</span>
+                <span class="company-tag transport">DeliveryHero</span>
+            </div>
+        </div>
+        
+        <div class="industry-sector">
+            <h3>Media y Gaming</h3>
+            <div class="company-tags">
+                <span class="company-tag media">Netflix</span>
+                <span class="company-tag media">ByteDance</span>
+                <span class="company-tag media">Reddit</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EL FUTURO DE GO - Slide 3: Direcciones Futuras -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Direcciones Estratégicas del Futuro</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <div class="future-direction">
+                <h3>Cloud-Native Infrastructure</h3>
+                <p class="direction-description">Consolidación como lenguaje favorito para infraestructura cloud-native y sistemas distribuidos</p>
+                <div class="tools-box">
+                    <p><strong>Herramientas clave:</strong></p>
+                    <ul class="formal-list">
+                        <li>Terraform (IaC)</li>
+                        <li>Proyectos Apache</li>
+                        <li>Operadores Kubernetes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <div class="future-direction">
+                <h3>Inteligencia Artificial</h3>
+                <p class="direction-description">Crecimiento en infraestructura de IA: sistemas escalables y confiables para productos de IA</p>
+                <div class="ai-ecosystem">
+                    <p><strong>Ecosistema IA en Go:</strong></p>
+                    <ul class="formal-list">
+                        <li>Ollama y LocalAI</li>
+                        <li>Integración OpenAI</li>
+                        <li>Soporte Google AI</li>
+                        <li>Infraestructura de despliegue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="note-box">
+        <p><strong>Nota:</strong> Python domina la creación de modelos; Go sobresale en infraestructura y despliegue</p>
+    </div>
+</section>
+
+<!-- EL FUTURO DE GO - Slide 4: Proyecciones 2025+ -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Proyecciones para 2025 y Más Allá</h2>
+    <div class="projections-container">
+        <div class="projection-status">
+            <h3>Etapa de Madurez y Consolidación</h3>
+        </div>
+        
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h4 class="cyan-text">Expectativas Clave</h4>
+                <ul class="formal-list">
+                    <li>Mantener liderazgo en infraestructura <strong>cloud-native</strong></li>
+                    <li>Expandir presencia en <strong>IA</strong> como lenguaje de infraestructura</li>
+                    <li>Crecimiento empresarial por <strong>simplicidad</strong> y <strong>rendimiento</strong></li>
+                    <li>Continuar alta demanda de profesionales especializados</li>
+                </ul>
+            </div>
+            <div class="column-right">
+                <h4 class="cyan-text">Nuevas Oportunidades</h4>
+                <ul class="formal-list">
+                    <li>Sistemas para servir modelos de <strong>IA</strong></li>
+                    <li>Nueva generación de sistemas distribuidos</li>
+                    <li>Herramientas <strong>DevOps</strong> y automatización</li>
+                    <li>Aplicaciones en <strong>edge computing</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN DE GO - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Instalación de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Guía Rápida de Instalación</p>
+</section>
+
+<!-- INSTALACIÓN - Slide 1: Instalación en Windows -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Instalación en Windows</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Pasos</h3>
+            <ol class="installation-steps">
+                <li>Visita <span class="highlight-url">https://go.dev/dl/</span></li>
+                <li>Descarga el archivo MSI</li>
+                <li>Ejecuta el instalador</li>
+                <li>Abre PowerShell y verifica</li>
+            </ol>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Verificación</h3>
+            <div class="code-container">
+                <pre><code class="language-powershell">go version</code></pre>
+            </div>
+            <div class="output-box">
+                <code>go version go1.21.x windows/amd64</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN - Slide 2: Instalación en Linux -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Instalación en Linux</h2>
+    <div class="installation-methods">
+        <div class="code-container-large">
+            <pre><code class="language-bash"># Descarga la última versión
+wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+
+# Extrae en /usr/local
+sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
+
+# Agrega Go al PATH
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+
+# Verifica
+go version</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN - Slide 3: Instalación en macOS -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Instalación en macOS</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Homebrew</h3>
+            <div class="code-container">
+                <pre><code class="language-bash">brew install go
+go version</code></pre>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Instalador PKG</h3>
+            <ol class="installation-steps">
+                <li>Visita <span class="highlight-url">https://go.dev/dl/</span></li>
+                <li>Descarga el PKG para macOS</li>
+                <li>Ejecuta el instalador</li>
+                <li>Verifica con <code>go version</code></li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN - Slide 4: Primer Programa -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Tu Primer Programa en Go</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Crear Proyecto</h3>
+            <div class="code-container">
+                <pre><code class="language-bash">mkdir hola-mundo
+cd hola-mundo
+go mod init hola-mundo</code></pre>
+            </div>
+            <h3 class="section-subtitle" style="margin-top: 1.5rem;">Archivo main.go</h3>
+            <div class="code-container">
+                <pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("¡Hola, Go!")
+}</code></pre>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Ejecutar</h3>
+            <div class="code-container">
+                <pre><code class="language-bash"># Ejecución directa
+go run main.go
+
+# O compilar
+go build
+./hola-mundo</code></pre>
+            </div>
+            <div class="output-box-large">
+                <p><strong>Salida:</strong></p>
+                <pre>¡Hola, Go!</pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EJEMPLO PROGRAMADO -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Ejemplo Programado</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Demostración Práctica en Clase</p>
+    <div style="margin-top: 3rem; text-align: center;">
+        <div style="background: rgba(0, 173, 216, 0.1); border: 2px solid #00ADD8; border-radius: 15px; padding: 3rem; max-width: 600px; margin: 0 auto;">
+            <p style="font-size: 1.3rem; color: rgba(255, 255, 255, 0.85); margin: 0;">
+                Este ejemplo se realizará en vivo durante la clase
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIONES - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Conclusiones</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Reflexiones Finales sobre Go</p>
+</section>
+
+<!-- CONCLUSIONES - Slide 1: Filosofía y Simplicidad -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">La Filosofía de Go: "Menos es Más"</h2>
+    <div class="conclusion-content">
+        <div class="philosophy-box">
+            <p class="conclusion-text">Al finalizar esta investigación, se logró entender la filosofía de Go: <strong>"Menos es Más"</strong>.</p>
+            <div class="stats-highlight">
+                <div class="stat-circle">
+                    <span class="number">25</span>
+                    <span class="label">Palabras Reservadas</span>
+                </div>
+                <div class="achievement-text">
+                    <p>Con solo 25 palabras reservadas y una sintaxis elegante, el lenguaje logra ser <strong>expresivo y potente</strong>.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion-card">
+            <h3>Concurrencia Democratizada</h3>
+            <p>La concurrencia es simple y accesible para todos gracias a su fácil implementación. Lo que antes requería conocimientos profundos en sistemas operativos, ahora se logra con <code>goroutines</code> y <code>channels</code> de una forma intuitiva.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIONES - Slide 2: Toolchain y Productividad -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Más que un Compilador: Un Ecosistema Completo</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <div class="toolchain-conclusion">
+                <h3>Toolchain Integrado</h3>
+                <p class="intro-text">Go no es solo un compilador; es un toolchain completo.</p>
+                <div class="tools-showcase">
+                    <div class="tool-highlight">
+                        <code>go fmt</code>
+                        <span>Formateo automático</span>
+                    </div>
+                    <div class="tool-highlight">
+                        <code>go mod</code>
+                        <span>Gestión de dependencias</span>
+                    </div>
+                    <div class="tool-highlight">
+                        <code>go test</code>
+                        <span>Testing integrado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <div class="productivity-box">
+                <h3>Enfoque en lo Importante</h3>
+                <p>Estas herramientas eliminan decisiones triviales pero que consumen tiempo, permitiendo a los desarrolladores <strong>enfocarse en resolver problemas reales</strong>.</p>
+                <div class="benefit-highlight">
+                    <p><strong>Resultado:</strong> Mayor productividad y código consistente en todos los proyectos Go</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIONES - Slide 3: Portabilidad y Trade-offs -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Portabilidad: Diseño desde el Inicio</h2>
+    <div class="portability-analysis">
+        <div class="portability-intro">
+            <p>En un mundo multiplataforma, Go desde el principio pensó en portabilidad. Es extremadamente fácil construir binarios simplemente cambiando las variables <code>GOOS</code> y <code>GOARCH</code>.</p>
+        </div>
+        
+        <div class="two-column-layout">
+            <div class="column-left">
+                <div class="tradeoff-section">
+                    <h3 class="tradeoff-title">El Sacrificio</h3>
+                    <div class="tradeoff-content">
+                        <p>Binarios estáticos de tamaños grandes comparados con C o Rust</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column-right">
+                <div class="benefits-section">
+                    <h3 class="benefits-title">Los Beneficios</h3>
+                    <ul class="benefits-list">
+                        <li>Cero dependencias externas</li>
+                        <li>Portabilidad total entre plataformas</li>
+                        <li>Despliegue trivial</li>
+                        <li>Mucho más pequeños que aplicaciones Java o Node.js empaquetadas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion-note">
+            <p><strong>Balance perfecto:</strong> Los beneficios superan ampliamente el costo del tamaño de los binarios</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIONES - Slide 4: Especialización y Éxito -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Especialización: La Clave del Éxito</h2>
+    <div class="specialization-content">
+        <div class="philosophy-statement">
+            <p class="statement-text">El lenguaje <strong>no intenta ser todo para todos</strong>. Se especializó en áreas específicas donde es prácticamente imbatible.</p>
+        </div>
+        
+        <div class="specialization-areas">
+            <div class="area-card">
+                <h3>Infraestructura Cloud-Native</h3>
+            </div>
+            <div class="area-card">
+                <h3>Sistemas Distribuidos</h3>
+            </div>
+            <div class="area-card">
+                <h3>Servicios Web de Alta Concurrencia</h3>
+            </div>
+        </div>
+        
+        <div class="success-cases">
+            <h3>Casos de Éxito</h3>
+            <p class="success-intro">Proyectos emblemáticos que eligieron Go estratégicamente:</p>
+            <div class="projects-showcase">
+                <div class="project-badge">Kubernetes</div>
+                <div class="project-badge">Docker</div>
+                <div class="project-badge">Terraform</div>
+            </div>
+            <p class="success-note">Estos proyectos <strong>no eligieron Go por casualidad</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIONES - Slide 5: Reflexión Final -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Reflexión Final</h2>
+    <div class="final-reflection-compact">
+        <div class="main-conclusion-compact">
+            <p>Go representa un <strong>enfoque refrescante</strong> en el diseño de lenguajes de programación.</p>
+        </div>
+        
+        <div class="characteristics-grid-compact">
+            <div class="char-box-compact">
+                <h4>Realista</h4>
+                <p>No es perfecto</p>
+            </div>
+            <div class="char-box-compact">
+                <h4>Pragmático</h4>
+                <p>Simplicidad práctica</p>
+            </div>
+            <div class="char-box-compact">
+                <h4>Sólido</h4>
+                <p>Concurrencia nativa</p>
+            </div>
+        </div>
+        
+        <div class="achievements-compact">
+            <h3>Logros Alcanzados</h3>
+            <ul class="achievements-list-compact">
+                <li>Cumplió sus objetivos originales de diseño</li>
+                <li>Continúa evolucionando coherentemente con su visión inicial</li>
+                <li>Herramienta ideal para desafíos del desarrollo moderno</li>
+            </ul>
+        </div>
+        
+        <div class="final-verdict-compact">
+            <h3>Veredicto</h3>
+            <p>Para sistemas distribuidos, microservicios y aplicaciones de alta concurrencia, <strong>Go no es solo una opción viable; es frecuentemente la mejor opción disponible</strong>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONCLUSIONES - Slide Final: Let's Go -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem;">
+        
+        <h1 class="lets-go-title" style="font-size: 5.5rem; font-weight: 700; color: #00ADD8; margin: 0; text-transform: uppercase; letter-spacing: 0.15em;">Let's Go!</h1>
+        <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.6); margin-top: 5rem; font-weight: 300;">
+            Gracias por su atención
+        </p>
+    </div>
+</section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/navigation.js"></script>
+    
+    <script>
+        Reveal.initialize({
+            hash: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            controlsLayout: 'bottom-right',
+            controlsBackArrows: 'faded',
+            width: 1280,
+            height: 720,
+            margin: 0.1,
+            center: true,
+            plugins: [ RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

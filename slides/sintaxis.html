@@ -1,0 +1,439 @@
+<!-- SINTAXIS - Slide 1: Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Sintaxis de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Simple pero Poderosa</p>
+</section>
+
+<!-- SINTAXIS - Slide 2: Variables y Constantes -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Declaración de Variables</h2>
+    <div class="code-example-layout">
+        <pre><code class="language-go">// Declaración completa
+var nombre string = "María"
+
+// Inferencia de tipo
+var edad = 29
+
+// Declaración corta (solo en funciones)
+puntuacion := 95.5
+
+// Múltiples variables
+var x, y, z int = 1, 2, 3
+ciudad, codigo := "Madrid", 28001</code></pre>
+        <div class="syntax-notes">
+            <div class="note-item">
+                <h4>:= Declaración Corta</h4>
+                <p>Reduce verbosidad manteniendo seguridad de tipos</p>
+            </div>
+            <div class="note-item">
+                <h4>Valores por Defecto</h4>
+                <p>int → 0, bool → false, string → ""</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS Y CONCEPTOS - Slide 3: Constantes e iota -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Constantes e iota</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Constantes Tipadas</h3>
+            <pre><code class="language-go" style="padding: 1rem;">const Pi = 3.14159
+const MaxUsers = 100
+
+// Múltiples constantes
+const (
+    StatusOK = 200
+    StatusNotFound = 404
+)</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">iota: Contador Automático</h3>
+            <pre><code class="language-go" style="padding: 1rem;">const (
+    ENERO = iota  // 0
+    FEBRERO       // 1
+    MARZO         // 2
+    ABRIL         // 3
+    MAYO          // 4
+)</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 4: Tipos de Datos -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Tipos de Datos Fundamentales</h2>
+    <div class="types-grid">
+        <div class="type-group">
+            <h3>Booleanos</h3>
+            <code>bool</code>
+        </div>
+        <div class="type-group">
+            <h3>Enteros con Signo</h3>
+            <code>int, int8, int16, int32, int64</code>
+        </div>
+        <div class="type-group">
+            <h3>Enteros sin Signo</h3>
+            <code>uint, uint8, uint16, uint32, uint64</code>
+        </div>
+        <div class="type-group">
+            <h3>Punto Flotante</h3>
+            <code>float32, float64</code>
+        </div>
+        <div class="type-group">
+            <h3>Texto y Bytes</h3>
+            <code>string, byte, rune</code>
+        </div>
+    </div>
+    <div class="rune-example">
+        <h4>rune: Unicode Internacional</h4>
+        <pre><code class="language-go">texto := "Hola, 你好, こんにちは"
+for _, r := range texto {
+    fmt.Printf("%c ", r)
+}</code></pre>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 5: Control de Flujo: if/switch -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Control de Flujo: if y switch</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">if (sin paréntesis)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">if edad >= 18 {
+    fmt.Println("Adulto")
+}
+
+// if con declaración
+if v := getValor(); v > 10 {
+    fmt.Println(v)
+}</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">switch (sin break)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">switch dia {
+case "lunes":
+    fmt.Println("Inicio")
+case "sábado", "domingo":
+    fmt.Println("Fin de semana")
+default:
+    fmt.Println("Entre semana")
+}</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 6: Bucles for -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Bucles: Solo "for"</h2>
+    <div class="for-variants">
+        <div class="for-example">
+            <h3>Estilo C</h3>
+            <pre><code class="language-go">for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}</code></pre>
+        </div>
+        <div class="for-example">
+            <h3>Estilo While</h3>
+            <pre><code class="language-go">contador := 0
+for contador < 5 {
+    fmt.Println(contador)
+    contador++
+}</code></pre>
+        </div>
+        <div class="for-example">
+            <h3>Infinito</h3>
+            <pre><code class="language-go">for {
+    if shouldExit() {
+        break
+    }
+}</code></pre>
+        </div>
+        <div class="for-example">
+            <h3>range</h3>
+            <pre><code class="language-go">nums := []int{1, 2, 3}
+for i, v := range nums {
+    fmt.Printf("%d:%d\n", i, v)
+}</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 7: Arrays y Slices -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Arrays vs Slices</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Arrays (Tamaño Fijo)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">// Tamaño fijo
+var nums [5]int
+
+// Inicialización
+datos := [3]string{"a", "b", "c"}
+
+// Inferencia
+dias := [...]string{
+    "lunes", "martes"
+}</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Slices (Dinámicos)</h3>
+            <pre><code class="language-go" style="padding: 1rem;">// Slice literal
+nums := []int{1, 2, 3, 4}
+
+// Con make
+s := make([]int, 5, 10)
+
+// Append
+nums = append(nums, 5, 6)
+
+// Subslice
+sub := nums[1:3]</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 8: Maps -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Maps (Diccionarios)</h2>
+    <div class="map-layout">
+        <div class="map-syntax">
+            <h3>Sintaxis: map[TipoClave]TipoValor</h3>
+            <pre><code class="language-go">// Creación con valores
+edades := map[string]int{
+    "Ana":    28,
+    "Carlos": 35,
+}
+
+// Con make
+precios := make(map[string]float64)
+
+// Operaciones
+edades["David"] = 31        // Añadir
+edad := edades["Ana"]        // Leer
+delete(edades, "Carlos")     // Eliminar
+
+// Verificar existencia
+if edad, ok := edades["Luis"]; ok {
+    fmt.Println(edad)
+}</code></pre>
+        </div>
+        <div class="map-notes">
+            <div class="map-note-item">
+                <h4>Maps son Referencias</h4>
+                <p>Se pasan por referencia a funciones</p>
+            </div>
+            <div class="map-note-item">
+                <h4>Orden NO Garantizado</h4>
+                <p>Iteración en orden aleatorio</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 9: Structs -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Structs: Composición de Tipos</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Definición y Uso</h3>
+            <pre><code class="language-go">type Persona struct {
+    Nombre   string
+    Apellido string
+    Edad     int
+}
+
+// Creación
+p := Persona{
+    Nombre: "Ana",
+    Apellido: "López",
+    Edad: 30,
+}
+
+// Acceso
+fmt.Println(p.Nombre)</code></pre>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Embedding (Composición)</h3>
+            <pre><code class="language-go">type Empleado struct {
+    Persona  // Embedding
+    ID       string
+    Salario  float64
+}
+
+e := Empleado{
+    Persona: Persona{
+        Nombre: "Carlos",
+    },
+    ID: "E123",
+}
+
+// Campos promocionados
+fmt.Println(e.Nombre)</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 10: Métodos e Interfaces -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Métodos e Interfaces</h2>
+    <div class="methods-interfaces-layout">
+        <div class="methods-section">
+            <h3>Métodos con Receptores</h3>
+            <pre><code class="language-go">// Receptor de valor
+func (p Persona) NombreCompleto() string {
+    return p.Nombre + " " + p.Apellido
+}
+
+// Receptor de puntero (modifica)
+func (p *Persona) CumplirAnios() {
+    p.Edad++
+}
+
+p := Persona{Nombre: "Ana", Edad: 25}
+p.CumplirAnios()  // Edad ahora es 26</code></pre>
+        </div>
+        <div class="interfaces-section">
+            <h3>Interfaces Implícitas</h3>
+            <pre><code class="language-go">type Saludable interface {
+    Saludar() string
+}
+
+func (p Persona) Saludar() string {
+    return "Hola, " + p.Nombre
+}
+
+// Polimorfismo
+func SaludarA(s Saludable) {
+    fmt.Println(s.Saludar())
+}
+
+SaludarA(p)  // Funciona automáticamente</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 11: Goroutines y Channels -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Concurrencia: Goroutines y Channels</h2>
+    <div class="concurrency-examples">
+        <div class="goroutine-example">
+            <h3>Goroutines: Hilos Ligeros</h3>
+            <pre><code class="language-go">// Lanzar goroutine
+go func() {
+    fmt.Println("Ejecutando concurrentemente")
+}()
+
+// Con WaitGroup
+var wg sync.WaitGroup
+wg.Add(1)
+go func() {
+    defer wg.Done()
+    // hacer trabajo
+}()
+wg.Wait()</code></pre>
+        </div>
+        <div class="channel-example">
+            <h3>Channels: Comunicación Segura</h3>
+            <pre><code class="language-go">// Canal sin buffer
+ch := make(chan int)
+
+go func() {
+    ch <- 42  // Enviar
+}()
+
+valor := <-ch  // Recibir
+
+// Canal con buffer
+buf := make(chan int, 3)
+buf <- 1
+buf <- 2
+buf <- 3</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 12: Manejo de Errores -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Manejo de Errores Explícito</h2>
+    <div class="error-handling-layout">
+        <div class="error-example">
+            <h3>Patrón Estándar</h3>
+            <pre><code class="language-go">func dividir(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("división por cero")
+    }
+    return a / b, nil
+}
+
+// Uso
+resultado, err := dividir(10, 0)
+if err != nil {
+    fmt.Println("Error:", err)
+    return
+}
+fmt.Println(resultado)</code></pre>
+        </div>
+        <div class="error-notes">
+            <div class="error-principle">
+                <h4>No Excepciones</h4>
+                <p>Errores como valores de retorno</p>
+            </div>
+            <div class="error-principle">
+                <h4>Manejo Explícito</h4>
+                <p>Verificación inmediata con if err != nil</p>
+            </div>
+            <div class="error-principle">
+                <h4>Errors Personalizados</h4>
+                <p>Implementa interface error con método Error()</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SINTAXIS - Slide 13: Biblioteca Estándar y Herramientas -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Ecosistema Completo</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Biblioteca Estándar</h3>
+            <div class="stdlib-packages-compact">
+                <div class="pkg-category">
+                    <h4>Redes y HTTP</h4>
+                    <code>net/http, net</code>
+                </div>
+                <div class="pkg-category">
+                    <h4>I/O</h4>
+                    <code>fmt, io, bufio</code>
+                </div>
+                <div class="pkg-category">
+                    <h4>Serialización</h4>
+                    <code>encoding/json</code>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Herramientas CLI</h3>
+            <div class="tools-list-compact">
+                <div class="tool-item">
+                    <code>go fmt</code>
+                    <span>Formateo</span>
+                </div>
+                <div class="tool-item">
+                    <code>go vet</code>
+                    <span>Análisis estático</span>
+                </div>
+                <div class="tool-item">
+                    <code>go test</code>
+                    <span>Testing</span>
+                </div>
+                <div class="tool-item">
+                    <code>go build</code>
+                    <span>Compilación</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

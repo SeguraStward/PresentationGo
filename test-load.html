@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Presentación Go</title>
+    <style>
+        body {
+            background: #0a0e27;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #status {
+            border: 2px solid #00ADD8;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de Carga</h1>
+    <div id="status">Cargando...</div>
+    <div id="content"></div>
+    
+    <script>
+        const status = document.getElementById('status');
+        const content = document.getElementById('content');
+        
+        async function test() {
+            status.innerHTML = 'Paso 1: Cargando intro.html...';
+            
+            try {
+                const response = await fetch('slides/intro.html');
+                status.innerHTML += '<br>Paso 2: Response recibida - Status: ' + response.status;
+                
+                const text = await response.text();
+                status.innerHTML += '<br>Paso 3: Texto cargado - Longitud: ' + text.length;
+                
+                content.innerHTML = text;
+                status.innerHTML += '<br><strong style="color: #00ADD8;">✓ Carga exitosa!</strong>';
+            } catch (error) {
+                status.innerHTML += '<br><strong style="color: red;">✗ Error: ' + error.message + '</strong>';
+            }
+        }
+        
+        test();
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!-- INSTALACIÓN DE GO - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Instalación de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Guía Rápida de Instalación</p>
+</section>
+
+<!-- INSTALACIÓN - Slide 1: Instalación en Windows -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Instalación en Windows</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Pasos</h3>
+            <ol class="installation-steps">
+                <li>Visita <span class="highlight-url">https://go.dev/dl/</span></li>
+                <li>Descarga el archivo MSI</li>
+                <li>Ejecuta el instalador</li>
+                <li>Abre PowerShell y verifica</li>
+            </ol>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Verificación</h3>
+            <div class="code-container">
+                <pre><code class="language-powershell">go version</code></pre>
+            </div>
+            <div class="output-box">
+                <code>go version go1.21.x windows/amd64</code>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN - Slide 2: Instalación en Linux -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Instalación en Linux</h2>
+    <div class="installation-methods">
+        <div class="code-container-large">
+            <pre><code class="language-bash"># Descarga la última versión
+wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+
+# Extrae en /usr/local
+sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
+
+# Agrega Go al PATH
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+
+# Verifica
+go version</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN - Slide 3: Instalación en macOS -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Instalación en macOS</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Homebrew</h3>
+            <div class="code-container">
+                <pre><code class="language-bash">brew install go
+go version</code></pre>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Instalador PKG</h3>
+            <ol class="installation-steps">
+                <li>Visita <span class="highlight-url">https://go.dev/dl/</span></li>
+                <li>Descarga el PKG para macOS</li>
+                <li>Ejecuta el instalador</li>
+                <li>Verifica con <code>go version</code></li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- INSTALACIÓN - Slide 4: Primer Programa -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Tu Primer Programa en Go</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Crear Proyecto</h3>
+            <div class="code-container">
+                <pre><code class="language-bash">mkdir hola-mundo
+cd hola-mundo
+go mod init hola-mundo</code></pre>
+            </div>
+            <h3 class="section-subtitle" style="margin-top: 1.5rem;">Archivo main.go</h3>
+            <div class="code-container">
+                <pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("¡Hola, Go!")
+}</code></pre>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Ejecutar</h3>
+            <div class="code-container">
+                <pre><code class="language-bash"># Ejecución directa
+go run main.go
+
+# O compilar
+go build
+./hola-mundo</code></pre>
+            </div>
+            <div class="output-box-large">
+                <p><strong>Salida:</strong></p>
+                <pre>¡Hola, Go!</pre>
+            </div>
+        </div>
+    </div>
+</section>

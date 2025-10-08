@@ -1,0 +1,488 @@
+<!-- ANÁLISIS DEL LENGUAJE - Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Análisis del Lenguaje</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Análisis Detallado del Lenguaje</p>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 1: Contexto 2007 y Objetivos -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Contexto Tecnológico 2007: Necesidad de Cambio</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Desafíos Emergentes</h3>
+            <ul class="formal-list">
+                <li>Código externo difícil de controlar</li>
+                <li>Cadenas de dependencias complejas</li>
+                <li>Dominancia de arquitecturas en red</li>
+                <li>Aplicaciones cliente/servidor</li>
+                <li>Clústeres masivos de máquinas</li>
+                <li>Procesadores multinúcleo en auge</li>
+            </ul>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Metas de Go</h3>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <h4>Eficiencia + Facilidad</h4>
+                    <p>Compilado y tipado estático con facilidad de lenguaje dinámico</p>
+                </div>
+                <div class="goal-item">
+                    <h4>Seguridad</h4>
+                    <p>Tipado seguro y memoria segura</p>
+                </div>
+                <div class="goal-item">
+                    <h4>Concurrencia</h4>
+                    <p>Soporte robusto para concurrencia y comunicación</p>
+                </div>
+                <div class="goal-item">
+                    <h4>Compilación rápida</h4>
+                    <p>Para ciclos de desarrollo más productivos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 2: Filosofía y Expresividad -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Expresividad de Go</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Reconocimientos</h3>
+            <div class="award-box">
+                <div class="award-item">
+                    <h4>TIOBE 2009</h4>
+                    <p>Lenguaje del Año, dos meses después de su lanzamiento</p>
+                </div>
+                <div class="award-item">
+                    <h4>INFOWORLD BOSSIE</h4>
+                    <p>Best of Open Source Software Awards</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Principios de Diseño</h3>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h4>Simple</h4>
+                    <p>Conceptos fáciles de entender</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Ortogonal</h4>
+                    <p>Características combinables y predecibles</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Conciso</h4>
+                    <p>Sin redundancia innecesaria</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Seguro</h4>
+                    <p>Errores fáciles de detectar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 3: Compilador - Filosofía -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Compilador de Go</h2>
+    <div class="compiler-layout">
+        <div class="compiler-philosophy">
+            <h3 class="section-subtitle">Herencia de Plan 9</h3>
+            <p class="description-text">Diseñadores Ken Thompson y Rob Pike trabajaron en Plan 9 de Bell Labs, sistema con filosofía minimalista y compiladores conocidos por su velocidad.</p>
+            <div class="philosophy-highlight">
+                <h4>Filosofía: "Compila rápido, enlaza despacio"</h4>
+                <p>No se invierte tiempo optimizando cada detalle durante compilación. Optimizaciones importantes se realizan en enlazado o posteriormente.</p>
+            </div>
+        </div>
+        <div class="compiler-structure">
+            <h3 class="section-subtitle">Estructura del Compilador</h3>
+            <div class="structure-grid">
+                <div class="structure-item">
+                    <h4>Frontend</h4>
+                    <p>Dos primeras fases de compilación</p>
+                </div>
+                <div class="structure-item">
+                    <h4>Middle-end</h4>
+                    <p>Gran parte del trabajo en segunda fase</p>
+                </div>
+                <div class="structure-item">
+                    <h4>Backend</h4>
+                    <p>Dos últimas fases de compilación</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 4: Fases del Compilador -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Fases del Compilador</h2>
+    <div class="phases-container">
+        <div class="phase-card">
+            <div class="phase-number">1</div>
+            <h3>Parsing</h3>
+            <p>Análisis léxico y sintáctico. Creación de árbol de sintaxis por archivo con información de posición.</p>
+        </div>
+        <div class="phase-card">
+            <div class="phase-number">2</div>
+            <h3>Type Checking</h3>
+            <p>Análisis semántico. Asegura corrección, coherencia y seguridad antes de generar código intermedio.</p>
+        </div>
+        <div class="phase-card">
+            <div class="phase-number">3</div>
+            <h3>IR Construction</h3>
+            <p>Construcción de Representación Intermedia. Traducción a definición comprensible por middle-end mediante Unified IR.</p>
+        </div>
+        <div class="phase-card">
+            <div class="phase-number">4</div>
+            <h3>Middle-end</h3>
+            <p>Optimizaciones: análisis de escape, inlining, eliminación de código muerto, devirtualización.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 5: Optimizaciones Middle-end (Parte 1) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Optimizaciones: Análisis de Escape e Inlining</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Análisis de Escape</h3>
+            <p class="opt-description">Determina cuándo asignar variables a stack (pila) o heap (montón).</p>
+            <div class="benefit-box">
+                <h4>Beneficios</h4>
+                <p>Asignación en pila es más eficiente</p>
+                <p>No requiere garbage collector</p>
+                <p>Reduce carga del recolector</p>
+            </div>
+            <div class="escape-concept">
+                <h4>Variable Escapa al Heap</h4>
+                <p>Cuando se referencia fuera de su ámbito local</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Function Call Inlining</h3>
+            <p class="opt-description">Reemplazo de llamada de función por el cuerpo de esta.</p>
+            <div class="benefit-box">
+                <h4>Resultado</h4>
+                <p>Elimina sobrecarga de llamadas</p>
+                <p>Código más rápido</p>
+                <p>Menor overhead en runtime</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 6: Optimizaciones Middle-end (Parte 2) -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Optimizaciones: Dead Code y Devirtualización</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Dead Code Elimination</h3>
+            <p class="opt-description">Eliminación de código que nunca se ejecuta.</p>
+            <div class="benefit-box">
+                <h4>Ventajas</h4>
+                <p>Reduce tamaño del programa</p>
+                <p>Disminuye complejidad</p>
+                <p>Mejora rendimiento</p>
+            </div>
+            <div class="note-box">
+                <p>Pasada a nivel local en funciones</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Devirtualización</h3>
+            <p class="opt-description">Transformación de llamadas de interfaz (despacho dinámico) a llamadas directas (despacho estático).</p>
+            <div class="devirt-process">
+                <div class="process-step">
+                    <h4>Análisis</h4>
+                    <p>Determina tipos concretos usados con interfaz</p>
+                </div>
+                <div class="process-step">
+                    <h4>Transformación</h4>
+                    <p>Convierte a llamada directa al struct</p>
+                </div>
+                <div class="process-step">
+                    <h4>Resultado</h4>
+                    <p>Elimina sobrecarga de despacho dinámico</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 7: Walk y SSA -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Walk y Generación SSA</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Walk: Última Pasada IR</h3>
+            <div class="walk-purposes">
+                <div class="purpose-item">
+                    <div class="purpose-number">1</div>
+                    <h4>Simplificación</h4>
+                    <p>Descompone sentencias complejas en individuales. Introduce variables temporales respetando orden de evaluación.</p>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-number">2</div>
+                    <h4>Desazucarado</h4>
+                    <p>Convierte construcciones de alto nivel en operaciones primitivas. Switch → tablas de búsqueda, maps/canales → llamadas runtime.</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Generación SSA</h3>
+            <div class="ssa-info">
+                <h4>Static Single Assignment</h4>
+                <p>Representación intermedia de bajo nivel con propiedades específicas.</p>
+            </div>
+            <div class="ssa-benefits">
+                <h4>Facilita</h4>
+                <ul class="benefit-list">
+                    <li>Optimizaciones adicionales</li>
+                    <li>Generación de código máquina</li>
+                    <li>Análisis de flujo de datos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 8: Generación de Código Máquina -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Generación de Código Máquina</h2>
+    <div class="codegen-flow">
+        <div class="flow-step">
+            <div class="step-icon">1</div>
+            <h3>Lower Pass</h3>
+            <p>Reescritura de representación genérica a variantes específicas de la arquitectura destino</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+            <div class="step-icon">2</div>
+            <h3>Optimizaciones Finales</h3>
+            <p>Eliminación de código muerto, asignación en registros, optimizaciones específicas de arquitectura</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+            <div class="step-icon">3</div>
+            <h3>Ensamblador</h3>
+            <p>Conversión de instrucciones específicas a código máquina ejecutable</p>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 9: Enlazador -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Enlazador Estático</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Función del Enlazador</h3>
+            <div class="linker-info">
+                <p>Combina archivos de compilación intermedios en un único ejecutable.</p>
+                <p>Copia todas las rutinas de bibliotecas utilizadas, incluyendo runtime de Go.</p>
+            </div>
+            <div class="optimization-highlight">
+                <h4>Optimización Clave</h4>
+                <p>Análisis de alcanzabilidad a nivel de símbolo</p>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Ventajas vs Desventajas</h3>
+            <div class="pros-cons">
+                <div class="pros-section">
+                    <h4>Ventajas</h4>
+                    <ul class="pro-list">
+                        <li>Portabilidad entre máquinas</li>
+                        <li>Despliegue simple (un archivo)</li>
+                        <li>Sin dependencias externas</li>
+                        <li>Tiempo de inicio rápido</li>
+                    </ul>
+                </div>
+                <div class="cons-section">
+                    <h4>Desventajas</h4>
+                    <ul class="con-list">
+                        <li>Binarios de mayor tamaño</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 10: Runtime - Modelo G-M-P -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Runtime: Modelo G-M-P</h2>
+    <div class="gmp-container">
+        <div class="gmp-intro">
+            <p>Runtime escrito en Go y ensamblador. Implementa scheduler de concurrencia propio.</p>
+        </div>
+        
+        <div class="gmp-row-full">
+            <h3 class="gmp-section-title">Componentes del Modelo</h3>
+            <div class="gmp-components-row">
+                <div class="component-card-compact">
+                    <h4>G (Goroutine)</h4>
+                    <p>Unidad de concurrencia ligera</p>
+                </div>
+                <div class="component-card-compact">
+                    <h4>M (Machine)</h4>
+                    <p>Hilo del sistema operativo</p>
+                </div>
+                <div class="component-card-compact">
+                    <h4>P (Processor)</h4>
+                    <p>Intermediario entre G y M</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gmp-row-full">
+            <h3 class="gmp-section-title">Técnicas de Optimización</h3>
+            <div class="gmp-techniques-row">
+                <div class="technique-card-compact">
+                    <h4>Work-stealing</h4>
+                    <p>P sin goroutines roba de la cola de otro P</p>
+                </div>
+                <div class="technique-card-compact">
+                    <h4>Preemption</h4>
+                    <p>Goroutines de larga ejecución no bloquean hilos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 11: Garbage Collector -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Garbage Collector</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Características</h3>
+            <div class="gc-features">
+                <div class="feature-gc">
+                    <h4>Concurrente</h4>
+                    <p>Trabajo en paralelo con aplicación</p>
+                    <p class="metric">Pausas &lt; 1 milisegundo</p>
+                </div>
+                <div class="feature-gc">
+                    <h4>No Generacional</h4>
+                    <p>Todos los objetos tratados igual</p>
+                    <p class="metric">Heap unificado</p>
+                </div>
+                <div class="feature-gc">
+                    <h4>No Compactante</h4>
+                    <p>No reubica objetos en memoria</p>
+                    <p class="metric">Evita sobrecarga de movimiento</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Algoritmo: Mark-and-Sweep</h3>
+            <div class="tricolor-algo">
+                <h4>Tres Colores</h4>
+                <div class="color-scheme">
+                    <div class="color-item white">
+                        <h5>Blanco</h5>
+                        <p>Objetos que podrían ser recolectados</p>
+                    </div>
+                    <div class="color-item gray">
+                        <h5>Gris</h5>
+                        <p>Alcanzables pero no escaneados</p>
+                    </div>
+                    <div class="color-item black">
+                        <h5>Negro</h5>
+                        <p>Escaneados completamente</p>
+                    </div>
+                </div>
+                <div class="gc-result">
+                    <p>Ciclo termina cuando no quedan objetos grises. Objetos blancos restantes son recolectados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 12: Go Toolchain - Compilación -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go Toolchain: Compilación y Dependencias</h2>
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h3 class="section-subtitle">Comandos de Compilación</h3>
+            <div class="toolchain-commands">
+                <div class="command-box">
+                    <code>go run main.go</code>
+                    <p>Compila y ejecuta directamente</p>
+                </div>
+                <div class="command-box">
+                    <code>go build</code>
+                    <p>Genera binario optimizado</p>
+                </div>
+                <div class="command-box">
+                    <code>go install</code>
+                    <p>Compila e instala en $GOBIN</p>
+                </div>
+            </div>
+        </div>
+        <div class="column-right">
+            <h3 class="section-subtitle">Gestión de Dependencias</h3>
+            <div class="toolchain-commands">
+                <div class="command-box">
+                    <code>go mod init</code>
+                    <p>Inicializa módulo Go</p>
+                </div>
+                <div class="command-box">
+                    <code>go mod tidy</code>
+                    <p>Limpia dependencias no usadas</p>
+                </div>
+                <div class="command-box">
+                    <code>go get</code>
+                    <p>Descarga dependencias</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ANÁLISIS DEL LENGUAJE - Slide 13: Go Toolchain - Caching -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Go Toolchain: Sistema de Caché</h2>
+    <div class="cache-system-layout">
+        <div class="cache-intro">
+            <p>Go utiliza un sistema de caché sofisticado para acelerar las compilaciones y gestionar dependencias de manera eficiente.</p>
+        </div>
+        
+        <div class="cache-types">
+            <div class="cache-type-card">
+                <h3>Caché de Construcción</h3>
+                <div class="cache-content">
+                    <p class="cache-description">Almacena compilaciones intermedias de paquetes.</p>
+                    <ul class="cache-features">
+                        <li>Si un paquete no ha cambiado, reutiliza la versión compilada en caché</li>
+                        <li>Reduce drásticamente los tiempos de compilación incremental</li>
+                        <li>Se gestiona automáticamente por el compilador</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cache-type-card">
+                <h3>Caché de Módulos</h3>
+                <div class="cache-content">
+                    <p class="cache-description">Ubicación: <code>$GOPATH/pkg/mod</code></p>
+                    <ul class="cache-features">
+                        <li>Almacena dependencias descargadas localmente</li>
+                        <li>Evita descargas redundantes de red</li>
+                        <li>Compartido entre todos los proyectos Go</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cache-security">
+            <h4>Seguridad y Verificación</h4>
+            <p><strong>go.mod</strong> declara las dependencias y versiones requeridas</p>
+            <p><strong>go.sum</strong> contiene checksums SHA-256 para verificar integridad</p>
+        </div>
+    </div>
+</section>
+

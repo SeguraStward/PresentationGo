@@ -1,0 +1,486 @@
+<!-- CARACTERÍSTICAS - Slide 1: Portada de Sección -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h1 style="font-size: 3.5rem; color: var(--go-cyan); margin-bottom: 1rem;">Características de Go</h1>
+    <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.7);">Análisis Detallado del Lenguaje</p>
+</section>
+
+<!-- CARACTERÍSTICAS - Slide 2: Características Generales -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Características Generales</h2>
+    <div class="general-features-grid">
+        <div class="feature-general-card">
+            <h3>Filosofía de Diseño</h3>
+            <div class="feature-content">
+                <p>Diseñado con principio de <strong>simplicidad y pragmatismo</strong>.</p>
+                <ul class="feature-list">
+                    <li>Prioriza legibilidad del código</li>
+                    <li>Facilidad de mantenimiento</li>
+                    <li>Filosofía: "Menos es más"</li>
+                    <li>Conjunto reducido pero poderoso</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="feature-general-card">
+            <h3>Paradigma de Programación</h3>
+            <div class="feature-content">
+                <p>Principalmente <strong>imperativo</strong> con soporte para concurrencia.</p>
+                <ul class="feature-list">
+                    <li>No orientado a objetos tradicional</li>
+                    <li>Composición de tipos y métodos</li>
+                    <li>Elementos de programación funcional</li>
+                    <li>Flexibilidad pragmática</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="feature-general-card">
+            <h3>Compilación y Ejecución</h3>
+            <div class="feature-content">
+                <p>Lenguaje <strong>compilado</strong> con binarios nativos independientes.</p>
+                <ul class="feature-list">
+                    <li>Sin máquinas virtuales</li>
+                    <li>Sin intérpretes en runtime</li>
+                    <li>Compilador extremadamente rápido</li>
+                    <li>Ciclos de desarrollo ágiles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CARACTERÍSTICAS - Slide 3: Características Específicas -->
+<section data-background-gradient="linear-gradient(135deg, #050811 0%, #0d1129 50%, #0a0e27 100%)">
+    <h2 class="slide-title">Características Específicas del Lenguaje</h2>
+    <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); text-align: center; margin-bottom: 1.5rem;">Haz clic en cada característica para ver más detalles</p>
+    <div class="specific-features-grid">
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('tiposModal')">
+            <h3>Sistema de Tipos</h3>
+            <p>Tipado estático pero flexible con inferencia automática</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('memoriaModal')">
+            <h3>Gestión de Memoria</h3>
+            <p>Garbage Collection de baja latencia con control manual</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('concurrenciaModal')">
+            <h3>Concurrencia Nativa</h3>
+            <p>Goroutines y canales como primitivas del lenguaje</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('herramientasModal')">
+            <h3>Toolchain Integrado</h3>
+            <p>Herramientas de formateo, testing y documentación incluidas</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('sintaxisModal')">
+            <h3>Sintaxis Minimalista</h3>
+            <p>25 palabras reservadas, sintaxis limpia inspirada en C</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('rendimientoModal')">
+            <h3>Rendimiento y Deployment</h3>
+            <p>Binarios estáticos optimizados para cloud-native</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('casosUsoModal')">
+            <h3>Casos de Uso</h3>
+            <p>Servicios web, microservicios, herramientas CLI</p>
+        </div>
+        
+        <div class="spec-feature-card clickable-feature" onclick="openFeatureModal('composicionModal')">
+            <h3>Composición sobre Herencia</h3>
+            <p>No hay clases ni herencia tradicional, se usa embedding</p>
+        </div>
+    </div>
+</section>
+
+<!-- Modales para Características Específicas -->
+
+<!-- Modal: Sistema de Tipos -->
+<div id="tiposModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('tiposModal')">&times;</span>
+        <h2>Sistema de Tipos</h2>
+        <div class="type-system-layout">
+            <div class="type-intro">
+                <p class="highlight-text">Sistema de tipos <strong>estático pero flexible</strong></p>
+            </div>
+            
+            <div class="type-categories">
+                <div class="type-category">
+                    <h3>Tipos Básicos</h3>
+                    <div class="type-items">
+                        <span class="type-badge">int</span>
+                        <span class="type-badge">float</span>
+                        <span class="type-badge">string</span>
+                        <span class="type-badge">bool</span>
+                    </div>
+                </div>
+                
+                <div class="type-category">
+                    <h3>Tipos Compuestos</h3>
+                    <div class="type-items">
+                        <span class="type-badge">arrays</span>
+                        <span class="type-badge">slices</span>
+                        <span class="type-badge">maps</span>
+                        <span class="type-badge">structs</span>
+                    </div>
+                </div>
+                
+                <div class="type-category">
+                    <h3>Tipos Avanzados</h3>
+                    <div class="type-items">
+                        <span class="type-badge">punteros</span>
+                        <span class="type-badge">interfaces</span>
+                        <span class="type-badge">canales</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interface-highlight">
+                <h4>Interfaces Implícitas</h4>
+                <p>Las interfaces se implementan implícitamente, facilitando polimorfismo sin jerarquías complejas</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Gestión de Memoria -->
+<div id="memoriaModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('memoriaModal')">&times;</span>
+        <h2>Gestión de Memoria</h2>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h3 class="section-subtitle subtitle-compact">Garbage Collector Eficiente</h3>
+                <div class="gc-benefits-box">
+                    <h4>Gestión Automática</h4>
+                    <p>Maneja automáticamente asignación y liberación de memoria</p>
+                </div>
+                
+                <div class="problems-solved">
+                    <h4>Problemas Eliminados</h4>
+                    <ul class="solved-list">
+                        <li>Memory leaks</li>
+                        <li>Dangling pointers</li>
+                        <li>Doble liberación</li>
+                        <li>Fragmentación manual</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="column-right">
+                <h3 class="section-subtitle subtitle-compact">Control de Rendimiento</h3>
+                <div class="performance-control">
+                    <div class="control-item">
+                        <h4>Punteros Disponibles</h4>
+                        <p>Mantiene control de rendimiento cuando es necesario</p>
+                    </div>
+                    
+                    <div class="control-item">
+                        <h4>Balance Perfecto</h4>
+                        <p>Seguridad automática + control manual cuando se necesita</p>
+                    </div>
+                    
+                    <div class="control-item">
+                        <h4>Optimización Inteligente</h4>
+                        <p>Análisis de escape determina stack vs heap</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Concurrencia Nativa -->
+<div id="concurrenciaModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('concurrenciaModal')">&times;</span>
+        <h2>Concurrencia Nativa: Característica Distintiva</h2>
+        <div class="concurrency-showcase">
+            <div class="concurrency-hero">
+                <h3>Goroutines</h3>
+                <p class="hero-description">Hilos ligeros gestionados por el runtime</p>
+                <div class="goroutine-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">Miles</div>
+                        <div class="stat-label">de goroutines creables</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Mínimo</div>
+                        <div class="stat-label">overhead</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="channels-section">
+                <h3>Canales (Channels)</h3>
+                <p class="channels-description">Forma segura de comunicación entre goroutines</p>
+                
+                <div class="csp-model">
+                    <h4>Modelo CSP</h4>
+                    <p>Communicating Sequential Processes</p>
+                    <ul class="csp-benefits">
+                        <li>Comunicación segura</li>
+                        <li>Sincronización implícita</li>
+                        <li>Prevención de race conditions</li>
+                        <li>Diseño elegante y simple</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Herramientas Integradas -->
+<div id="herramientasModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('herramientasModal')">&times;</span>
+        <h2>Herramientas Integradas: Ecosistema Completo</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>go fmt</h3>
+                <p>Formateo automático del código</p>
+                <span class="tool-benefit">Estilo consistente</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go test</h3>
+                <p>Framework de pruebas unitarias</p>
+                <span class="tool-benefit">Testing integrado</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go mod</h3>
+                <p>Gestión de dependencias</p>
+                <span class="tool-benefit">Módulos versionados</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go doc</h3>
+                <p>Generación de documentación</p>
+                <span class="tool-benefit">Docs automáticas</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>profiler</h3>
+                <p>Análisis de rendimiento</p>
+                <span class="tool-benefit">Optimización guiada</span>
+            </div>
+            
+            <div class="tool-card">
+                <h3>go vet</h3>
+                <p>Análisis de código estático</p>
+                <span class="tool-benefit">Detección de errores</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Sintaxis y Características del Lenguaje -->
+<div id="sintaxisModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('sintaxisModal')">&times;</span>
+        <h2>Sintaxis y Características del Lenguaje</h2>
+        <div class="syntax-features-layout">
+            <div class="syntax-inspiration">
+                <h3>Sintaxis Limpia y Minimalista</h3>
+                <p>Inspirada en C, pero simplificada - Solo 25 palabras reservadas</p>
+            </div>
+            
+            <div class="language-features-grid">
+                <div class="lang-feature">
+                    <h4>Structs con Métodos</h4>
+                    <p>No hay clases tradicionales, composición sobre herencia</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Múltiples Retornos</h4>
+                    <p>Funciones pueden devolver múltiples valores</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Defer Statements</h4>
+                    <p>Limpieza automática de recursos</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Type Embedding</h4>
+                    <p>Composición de tipos elegante</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Reflection Funcional</h4>
+                    <p>Limitada pero útil cuando se necesita</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Generics (Go 1.18+)</h4>
+                    <p>Añadidos en versión 1.18</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Errores Explícitos</h4>
+                    <p>No excepciones, manejo explícito de errores</p>
+                </div>
+                
+                <div class="lang-feature">
+                    <h4>Interfaces Implícitas</h4>
+                    <p>Duck typing con seguridad estática</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Rendimiento y Deployment -->
+<div id="rendimientoModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('rendimientoModal')">&times;</span>
+        <h2>Rendimiento y Deployment</h2>
+        <div class="two-column-layout">
+            <div class="column-left">
+                <h3 class="section-subtitle subtitle-compact">Rendimiento Excelente</h3>
+                <div class="performance-metrics">
+                    <div class="perf-item">
+                        <h4>Binarios Optimizados</h4>
+                        <p>Rendimiento comparable a C++ en muchos casos</p>
+                    </div>
+                    
+                    <div class="perf-item">
+                        <h4>Compilación Nativa</h4>
+                        <p>Sin overhead de VM o interpretación</p>
+                    </div>
+                    
+                    <div class="perf-item">
+                        <h4>Arranque Rápido</h4>
+                        <p>Tiempo de inicio muy rápido</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column-right">
+                <h3 class="section-subtitle">Deployment Simplificado</h3>
+                <div class="deployment-benefits">
+                    <div class="deploy-item">
+                        <h4>Binarios Autocontenidos</h4>
+                        <p>Un solo archivo ejecutable con todas las dependencias</p>
+                    </div>
+                    
+                    <div class="deploy-item">
+                        <h4>Despliegue Sencillo</h4>
+                        <p>Copiar y ejecutar, sin instalaciones complejas</p>
+                    </div>
+                    
+                    <div class="deploy-item">
+                        <h4>Cloud-Native</h4>
+                        <p>Ideal para microservicios y contenedores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Casos de Uso Principales -->
+<div id="casosUsoModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('casosUsoModal')">&times;</span>
+        <h2>Casos de Uso Principales</h2>
+        <div class="use-cases-layout">
+            <div class="use-cases-intro">
+                <p class="intro-highlight">Go se destaca especialmente en:</p>
+            </div>
+            
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <h3>Servicios Web y APIs</h3>
+                    <ul class="use-case-list">
+                        <li>APIs REST</li>
+                        <li>Servidores HTTP</li>
+                        <li>GraphQL</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Microservicios</h3>
+                    <ul class="use-case-list">
+                        <li>Servicios cloud-native</li>
+                        <li>Contenedores</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Herramientas CLI</h3>
+                    <ul class="use-case-list">
+                        <li>Línea de comandos</li>
+                        <li>DevOps tools</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Infraestructura</h3>
+                    <ul class="use-case-list">
+                        <li>Orquestadores</li>
+                        <li>Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="famous-projects">
+                <h3>Proyectos Famosos en Go</h3>
+                <div class="projects-showcase">
+                    <div class="project-badge">Docker</div>
+                    <div class="project-badge">Kubernetes</div>
+                    <div class="project-badge">Terraform</div>
+                    <div class="project-badge">Prometheus</div>
+                    <div class="project-badge">Etcd</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Composición sobre Herencia -->
+<div id="composicionModal" class="feature-modal">
+    <div class="feature-modal-content">
+        <span class="feature-close" onclick="closeFeatureModal('composicionModal')">&times;</span>
+        <h2>Composición sobre Herencia</h2>
+        <div class="composition-layout">
+            <div class="composition-intro">
+                <p class="highlight-text">Go <strong>no tiene clases ni herencia tradicional</strong></p>
+                <p>En su lugar, utiliza <strong>composición</strong> a través de embedding y interfaces</p>
+            </div>
+            
+            <div class="composition-benefits">
+                <h3>Ventajas del Enfoque</h3>
+                <div class="benefit-grid">
+                    <div class="benefit-item">
+                        <h4>Simplicidad</h4>
+                        <p>Sin jerarquías complejas de herencia</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>Flexibilidad</h4>
+                        <p>Composición dinámica de comportamiento</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>Claridad</h4>
+                        <p>Relaciones explícitas entre tipos</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h4>Mantenibilidad</h4>
+                        <p>Código más fácil de entender y modificar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="embedding-explanation">
+                <h3>Type Embedding</h3>
+                <p>Los structs pueden "embeber" otros tipos, heredando sus métodos automáticamente sin herencia explícita</p>
+            </div>
+        </div>
+    </div>
+</div>
+
