@@ -37,8 +37,10 @@ function closeFeatureModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'none';
-        // Restaurar navegación de Reveal.js
-        Reveal.configure({ keyboard: true });
+        // Restaurar navegación de Reveal.js con un pequeño delay
+        setTimeout(() => {
+            Reveal.configure({ keyboard: true });
+        }, 100);
     }
 }
 
@@ -49,15 +51,18 @@ document.addEventListener('keydown', function(event) {
         const activeModal = document.querySelector('.modal-overlay.active');
         if (activeModal) {
             activeModal.classList.remove('active');
-            Reveal.configure({ keyboard: true });
         }
         
         // Cerrar modales de características
         const openFeatureModal = document.querySelector('.feature-modal[style*="display: block"]');
         if (openFeatureModal) {
             openFeatureModal.style.display = 'none';
-            Reveal.configure({ keyboard: true });
         }
+        
+        // Restaurar navegación (siempre, por si acaso)
+        setTimeout(() => {
+            Reveal.configure({ keyboard: true });
+        }, 100);
     }
 });
 
@@ -65,7 +70,10 @@ document.addEventListener('keydown', function(event) {
 window.addEventListener('click', function(event) {
     if (event.target.classList.contains('feature-modal')) {
         event.target.style.display = 'none';
-        Reveal.configure({ keyboard: true });
+        // Restaurar navegación con delay
+        setTimeout(() => {
+            Reveal.configure({ keyboard: true });
+        }, 100);
     }
 });
 
