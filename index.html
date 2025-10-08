@@ -2,82 +2,50 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=presentation.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investigación sobre Go - Presentación</title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Redirigiendo...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        a {
+            color: #00d9ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="reveal">
-        <div class="slides" id="slides-container"></div>
+    <div class="container">
+        <h1>🚀 Redirigiendo a la presentación...</h1>
+        <p>Si no eres redirigido automáticamente, <a href="presentation.html">haz click aquí</a></p>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-    
     <script>
-        async function loadSlides() {
-            console.log('Iniciando carga de slides...');
-            const container = document.getElementById('slides-container');
-            const slideFiles = ['slides/intro.html', 'slides/antecedentes.html'];
-            
-            try {
-                // Cargar todos los archivos en paralelo
-                const responses = await Promise.all(
-                    slideFiles.map(file => 
-                        fetch(file).then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            return response.text();
-                        })
-                    )
-                );
-                
-                // Agregar todas las slides al contenedor
-                container.innerHTML = responses.join('\n');
-                console.log('Slides cargadas exitosamente');
-                
-                // Esperar un momento para que el DOM se actualice
-                setTimeout(() => {
-                    console.log('Inicializando Reveal.js...');
-                    Reveal.initialize({
-                        hash: true,
-                        progress: true,
-                        slideNumber: 'c/t',
-                        showSlideNumber: 'all',
-                        transition: 'slide',
-                        backgroundTransition: 'fade',
-                        controlsLayout: 'bottom-right',
-                        controlsBackArrows: 'faded',
-                        width: 1280,
-                        height: 720,
-                        margin: 0.1,
-                        center: true,
-                        plugins: [ RevealHighlight ]
-                    });
-                    console.log('Reveal.js inicializado');
-                }, 100);
-                
-            } catch (error) {
-                console.error('Error cargando slides:', error);
-                container.innerHTML = '<section><h1 style="color: red;">Error cargando presentación</h1><p>Verifica la consola para más detalles</p></section>';
-            }
-        }
-        
-        // Asegurarse de que el DOM y los scripts estén listos
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadSlides);
-        } else {
-            loadSlides();
-        }
+        // Redirección inmediata por JavaScript (respaldo)
+        window.location.href = 'presentation.html';
     </script>
 </body>
 </html>
